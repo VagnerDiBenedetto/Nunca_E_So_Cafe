@@ -84,7 +84,9 @@ h1{
     width: fit-content;
     border:  4px solid rgb(59, 10, 10);
     background-color: rgb(160, 155, 50);
+    margin: 15px;
 }
+
 
 .texto{
     width: 800px;
@@ -102,6 +104,7 @@ h1{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items:center;
 
 }
 
@@ -124,4 +127,16 @@ h1{
     background-color: antiquewhite;
     border: antiquewhite;
     
+}
+
+h2{
+    font-size: 30px;
+}
+
+.colunas{
+    width: 30%;
+}
+
+.processos{
+    width: 70%;
 }
