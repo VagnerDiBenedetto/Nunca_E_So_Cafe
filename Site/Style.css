@@ -6,7 +6,7 @@
 .header{
     background-color: rgb(0, 0, 0);
     width: 100vw;
-    height: 80px;
+    height: 150px;
     border-bottom: 4px solid rgb(160, 155, 50);
 }
 
@@ -19,17 +19,16 @@
     align-items: end;
 }
 
-.logo{
-    color: rgb(160, 155, 50);
-    margin:  0;
-    font-size:35px
+.logo img{
+    width: 200px;
     
 }
 
 .header .container li{
     display: inline;
-    padding: 0 30px;
+    padding: 0 50px;
     color: rgb(160, 155, 50);
+    font-size: 20px;
 }
 
 .header .container .navbar li a{
@@ -138,5 +137,5 @@ h2{
 }
 
 .processos{
-    width: 70%;
+    width: 75%;
 }
