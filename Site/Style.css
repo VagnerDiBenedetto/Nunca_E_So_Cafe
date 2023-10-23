@@ -31,8 +31,9 @@
     font-size: 20px;
 }
 
-.header .container .navbar li a{
+.header .container .barraNavegacao li a{
     text-decoration: none;
+    color: rgb(160, 155, 50);
 }
 
 .background{
