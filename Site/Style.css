@@ -6,7 +6,7 @@
 .header{
     background-color: rgb(0, 0, 0);
     width: 100vw;
-    height: 150px;
+    height: 300px;
     border-bottom: 4px solid rgb(160, 155, 50);
 }
 
@@ -20,15 +20,15 @@
 }
 
 .logo img{
-    width: 200px;
-    
+    width: 270px;
+    box-shadow:red 30px;
 }
 
 .header .container li{
     display: inline;
-    padding: 0 50px;
+    padding: 0 70px;
     color: rgb(160, 155, 50);
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .header .container .barraNavegacao li a{
