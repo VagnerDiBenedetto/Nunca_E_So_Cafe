@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +10,13 @@
 
     <div class="header">
         <div class="container">
-            <h1 class="logo"><img src="Imagens/Logo.png" alt="Logo"></h1>
+            <h1 class="logo"><a href="Pagina Inicial.html"><img src="Imagens/Logo.png" alt="Logo"></a></h1>
             <div class="barraNavegacao">
                 <ul>
                     <li><a href="História.html">História</a></li>
                     <li><a href="Processos.html">Processos</a></li>
-                    <li><a>Login</a></li>
+                    <li><a href="">Receitas</a></li>
+                    <li><a href="">Login</a></li>
                 </ul>
             </div>    
         </div>
@@ -62,7 +63,13 @@
 <script>
 
     function cafeteiraItaliana(){
-        divTitulo.innerHTML = `<h1>Cafeteira Italiana(Moka)</h1>`
+        divTitulo.innerHTML = `
+            <div class="titulo">
+                <img class="imgTitulo" src="Imagens/titulo esquerda.png" alt="Ramo de café">
+                <h1>Cafeteira Italiana(Moka)</h1>
+                <img class="imgTitulo" src="Imagens/titulo direita.png" alt="Ramo de café">
+            </div>
+            `
         divProcessos.innerHTML = ` 
             <div class="fileira">
                 <h2>
@@ -87,7 +94,13 @@
     }
 
     function prensaFrancesa(){
-        divTitulo.innerHTML = `<h1>Prensa Francesa</h1>`
+        divTitulo.innerHTML = `
+            <div class="titulo">
+                <img class="imgTitulo" src="Imagens/titulo esquerda.png" alt="Ramo de café">
+                <h1>Prensa Francesa</h1>
+                <img class="imgTitulo" src="Imagens/titulo direita.png" alt="Ramo de café">
+            </div>
+            `
         divProcessos.innerHTML = ` 
             <div class="fileira">
                 <h2>
@@ -112,7 +125,13 @@
     }
 
     function expresso(){
-        divTitulo.innerHTML = `<h1>Expresso</h1>`
+        divTitulo.innerHTML = `
+            <div class="titulo">
+                <img class="imgTitulo" src="Imagens/titulo esquerda.png" alt="Ramo de café">
+                <h1>Expresso</h1>
+                <img class="imgTitulo" src="Imagens/titulo direita.png" alt="Ramo de café">
+            </div>
+            `
         divProcessos.innerHTML = ` 
             <div class="fileira">
                 <h2>
@@ -135,7 +154,13 @@
     }
 
     function filtrado(){
-        divTitulo.innerHTML = `<h1>Filtrado</h1>`
+        divTitulo.innerHTML = `
+            <div class="titulo">
+                <img class="imgTitulo" src="Imagens/titulo esquerda.png" alt="Ramo de café">
+                <h1>Filtrado</h1>
+                <img class="imgTitulo" src="Imagens/titulo direita.png" alt="Ramo de café">
+            </div>
+            `
         divProcessos.innerHTML = ` 
             <div class="fileira">
                 <h2>
