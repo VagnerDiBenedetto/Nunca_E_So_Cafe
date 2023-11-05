@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel = "icon" href="Imagens/LogoFundo.png" type="image/x-icon">
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <h1 class="logo"><a href="Pagina Inicial.html"><img src="Imagens/LogoTitulo.png" alt="Logo"></a></h1>
+            <div class="barraNavegacao">
+                <ul>
+                    <li><a href="História.html">História</a></li>
+                    <li><a href="Processos.html">Processos</a></li>
+                    <li><a href="">Receitas</a></li>
+                    <li><a href="Login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="fundo">
+        <div class="container">
+            <div class="titulo">
+                <img class="imgTitulo" src="Imagens/titulo esquerda.png" alt="Ramo de café">
+                <h1>Cadastro</h1>
+                <img class="imgTitulo" src="Imagens/titulo direita.png" alt="Ramo de café">
+            </div>
+            <br>
+            <div class="tituloCadastro">
+            Dados Pessoais
+            </div>
+            <br>
+            <br>
+            <div class="fileiraCadastro">
+                <div class="">
+                    E-mail:<br>
+                    <input onkeyUp="validacao()" type="text" id="inputEmail"><br>
+                    <br>
+                    Username:<br>
+                    <input onkeyup="validacao()" type="text" id="inputUsername"><br>
+                    <br>
+                    Senha:<br>
+                    <input onkeyup="validacao()" type="text" id="inputSenha"><br>
+                    <br>
+                    Confirmação de Senha:<br>
+                    <input onkeyup="validacao()" type="text" id="inputConfirmaSenha"><br>
+                    <br>
+                </div>
+                <div>
+                    Nome:<br>
+                    <input onkeyup="validacao()" type="text" id="inputNome"><br>
+                    <br>
+                    Cep:<br>
+                    <input onkeyup="validacao()" type="text" id="inputCep"><br>
+                    <br>
+                    Estado:<br>
+                    <input onkeyup="validacao()" type="text" id="inputEstado"><br>
+                    <br>
+                    Cidade:<br>
+                    <input onkeyup="validacao()" type="text" id="inputCidade"><br>
+                    <br>
+                </div>
+                <div>
+                    Rua:<br>
+                    <input onkeyup="validacao()" type="text" id="inputRua"><br>
+                    <br>
+                    Numero:<br>
+                    <input type="text" id="inputNumero"><br>
+                    <br>
+                    Referencia:(opicional)<br>
+                    <input type="text" id="inputReferencia"><br>
+                    <br>
+                    Data de Nascimento:<br>
+                    <input type="text" id="inputData_de_Nascimento"><br>
+                    <br>
+                </div>
+            </div>      
+            <div class="validacao"> 
+            <div id="divValidacao" class="textoValidacao"></div> 
+            </div>
+            <div class="botaoCadastro">
+            <button onclick="cadastro()">Proxima</button>
+            </div>
+        </div>
+        <!-- <img class="imgFundo" src="Imagens/Final.png" alt="Denho de Café"> -->
+    </div>
+</body>
+
+<script>
+
+
+    function validacao(){          
+        var email = inputEmail.value;
+        var username = inputUsername.value;
+        var senha = inputSenha.value;
+        var tamanhoSenha = senha.length;
+        var confirmaSenha = inputConfirmaSenha.value;
+        var nome = inputNome.value;
+        var cep = inputCep.value;
+        var tamanhoCep = cep.length;
+        var estado = inputEstado.value;
+        var cidade = inputCidade.value;
+        var rua = inputRua.value;
+        var numero = inputNumero.value;
+        var referencia = inputReferencia.value;
+        var dtNascimento =inputData_de_Nascimento.value;
+         
+        var validacaoEspecial =senha.indexOf("!") >= 0 ||
+            senha.indexOf("@") >= 0 ||
+            senha.indexOf("#") >= 0 ||
+            senha.indexOf("$") >= 0 ||
+            senha.indexOf("%") >= 0 ||
+            senha.indexOf("¨") >= 0 ||
+            senha.indexOf("&") >= 0 ||
+            senha.indexOf("*") >= 0 ||
+            senha.indexOf("(") >= 0 ||
+            senha.indexOf(")") >= 0 ||
+            senha.indexOf("-") >= 0 ||
+            senha.indexOf("_") >= 0 ||
+            senha.indexOf("+") >= 0 ||
+            senha.indexOf("=") >= 0 ||
+            senha.indexOf("§") >= 0 ||
+            senha.indexOf('"') >= 0 ||
+            senha.indexOf("'") >= 0 ||
+            senha.indexOf(",") >= 0 ||
+            senha.indexOf("<") >= 0 ||
+            senha.indexOf(".") >= 0 ||
+            senha.indexOf(">") >= 0 ||
+            senha.indexOf(":") >= 0 ||
+            senha.indexOf(":") >= 0 ||
+            senha.indexOf("/") >= 0 ||
+            senha.indexOf("?") >= 0 ||
+            senha.indexOf("°") >= 0 ||
+            senha.indexOf("º") >= 0 ||
+            senha.indexOf("]") >= 0 ||
+            senha.indexOf("}") >= 0 ||
+            senha.indexOf("ª") >= 0 ||
+            senha.indexOf("[") >= 0 ||
+            senha.indexOf("{") >= 0 ||
+            senha.indexOf("%") >= 0;
+
+        var validacaoNumero = 
+            senha.indexOf(0) >= 0 ||
+            senha.indexOf(1) >= 0 ||
+            senha.indexOf(2) >= 0 ||
+            senha.indexOf(3) >= 0 ||
+            senha.indexOf(4) >= 0 ||
+            senha.indexOf(5) >= 0 ||
+            senha.indexOf(6) >= 0 ||
+            senha.indexOf(7) >= 0 ||
+            senha.indexOf(8) >= 0 ||
+            senha.indexOf(9) >= 0;
+
+
+        var textoValidacao = "";
+
+        if (email.indexOf("@") < 0){
+            textoValidacao += `<h6 style="color: red";>* O E-mail deve conter um @.</h6><br>`;
+        }else{
+            textoValidacao += `<h6 style="color: blue";>* O E-mail está correto.</h6><br>`;
+        }
+
+        if (username == username.toLowerCase() || username == username.toUpperCase()){
+            textoValidacao += `<h6 style="color: red";>* O Username deve ter ao menos uma letra maiuscula e uma letra misucaula.</h6><br>`; 
+        }else{
+            textoValidacao += `<h6 style="color: blue";>* O Username está correto.</h6><br>`;
+        }
+
+        if(tamanhoSenha < 8){
+            textoValidacao += `<h6 style="color: red";>* A Senha deve conter ao menos 8 caracteres.</h6><br>`;
+        }else if (senha == senha.toLowerCase() || senha == senha.toUpperCase()){
+            textoValidacao += `<h6 style="color: red";>* A Senha deve ter ao menos uma letra maiuscula e uma letra misucaula.</h6><br>`;
+        }else if (validacaoEspecial == false){
+            textoValidacao += `<h6 style="color: red";>* A Senha deve conter ao menos 1 caracter especial.</h6><br>`;
+        }else if (validacaoNumero == false){
+            textoValidacao += `<h6 style="color: red";>* A Senha deve conter ao menos 1 numero.</h6><br>`;
+        }else{
+            textoValidacao += `<h6 style="color: blue";>* A senha está correta.</h6><br>`;
+        }
+
+        if (confirmaSenha != senha){
+            textoValidacao += `<h6 style="color: red";>* As Senhas devem ser iguais.</h6><br>`;
+        }else{
+        }
+
+        if (tamanhoCep != 8){
+            textoValidacao += `<h6 style="color: red";>* O Cep deve conter 8 numeros.</h6><br>`;
+        }else{
+            textoValidacao += `<h6 style="color: blue";>* O Cep está correto.</h6><br>`;
+        }
+
+        divValidacao.innerHTML = textoValidacao;
+    }
+
+    function cadastro(){          
+        var email = inputEmail.value;
+        var username = inputUsername.value;
+        var senha = inputSenha.value;
+        var tamanhoSenha = senha.length;
+        var confirmaSenha = inputConfirmaSenha.value;
+        var nome = inputNome.value;
+        var cep = inputCep.value;
+        var tamanhoCep = cep.length;
+        var estado = inputEstado.value;
+        var cidade = inputCidade.value;
+        var rua = inputRua.value;
+        var numero = inputNumero.value;
+        var referencia = inputReferencia.value;
+        var dtNascimento =inputData_de_Nascimento.value;
+ 
+        var validacaoEspecial =senha.indexOf("!") >= 0 ||
+        senha.indexOf("@") >= 0 ||
+        senha.indexOf("#") >= 0 ||
+        senha.indexOf("$") >= 0 ||
+        senha.indexOf("%") >= 0 ||
+        senha.indexOf("¨") >= 0 ||
+        senha.indexOf("&") >= 0 ||
+        senha.indexOf("*") >= 0 ||
+        senha.indexOf("(") >= 0 ||
+        senha.indexOf(")") >= 0 ||
+        senha.indexOf("-") >= 0 ||
+        senha.indexOf("_") >= 0 ||
+        senha.indexOf("+") >= 0 ||
+        senha.indexOf("=") >= 0 ||
+        senha.indexOf("§") >= 0 ||
+        senha.indexOf('"') >= 0 ||
+        senha.indexOf("'") >= 0 ||
+        senha.indexOf(",") >= 0 ||
+        senha.indexOf("<") >= 0 ||
+        senha.indexOf(".") >= 0 ||
+        senha.indexOf(">") >= 0 ||
+        senha.indexOf(":") >= 0 ||
+        senha.indexOf(":") >= 0 ||
+        senha.indexOf("/") >= 0 ||
+        senha.indexOf("?") >= 0 ||
+        senha.indexOf("°") >= 0 ||
+        senha.indexOf("º") >= 0 ||
+        senha.indexOf("]") >= 0 ||
+        senha.indexOf("}") >= 0 ||
+        senha.indexOf("ª") >= 0 ||
+        senha.indexOf("[") >= 0 ||
+        senha.indexOf("{") >= 0 ||
+        senha.indexOf("%") >= 0;
+
+        var validacaoNumero = 
+        senha.indexOf(0) >= 0 ||
+        senha.indexOf(1) >= 0 ||
+        senha.indexOf(2) >= 0 ||
+        senha.indexOf(3) >= 0 ||
+        senha.indexOf(4) >= 0 ||
+        senha.indexOf(5) >= 0 ||
+        senha.indexOf(6) >= 0 ||
+        senha.indexOf(7) >= 0 ||
+        senha.indexOf(8) >= 0 ||
+        senha.indexOf(9) >= 0;
+
+
+        var somaValidados = 0;
+
+        if (email.indexOf("@") >= 0){
+            somaValidados ++;
+        }
+
+        if (username != username.toLowerCase() && username != username.toUpperCase()){
+            somaValidados ++;
+        }
+
+        if(tamanhoSenha >= 8 && senha != senha.toLowerCase() && senha != senha.toUpperCase() && validacaoEspecial == true && validacaoNumero == true){
+            somaValidados ++;
+        }
+
+        if (confirmaSenha == senha){
+            somaValidados ++;
+        }
+
+        if (tamanhoCep == 8){
+            somaValidados ++;
+        }
+        
+        if (estado != ""){
+            somaValidados ++;
+        }
+
+        if (cidade != ""){
+            somaValidados ++;
+        }
+
+        if (nome != ""){
+            somaValidados ++;
+        }
+
+        if (rua != ""){
+            somaValidados ++;
+        }
+
+        if (numero != ""){
+            somaValidados ++;
+        }
+        if(dtNascimento != ""){
+            somaValidados ++;
+        }
+
+        if (somaValidados == 11){
+            window.location.href="Pesquisa(1).html";
+        }
+    }
+
+</script>
