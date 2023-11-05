@@ -78,10 +78,8 @@
                     <input type="text" id="inputData_de_Nascimento"><br>
                     <br>
                 </div>
-            </div>      
-            <div class="validacao"> 
-            <div id="divValidacao" class="textoValidacao"></div> 
-            </div>
+            </div>     
+            <div id="divValidacao"></div> 
             <div class="botaoCadastro">
             <button onclick="cadastro()">Proxima</button>
             </div>
@@ -193,7 +191,13 @@
             textoValidacao += `<h6 style="color: blue";>* O Cep está correto.</h6><br>`;
         }
 
-        divValidacao.innerHTML = textoValidacao;
+        divValidacao.innerHTML = `
+        <div class="validacao"> 
+            <div class="textoValidacao">
+                ${textoValidacao}
+            </div> 
+        </div>
+        `;
     }
 
     function cadastro(){          

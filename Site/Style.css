@@ -141,7 +141,10 @@ h2{
 .fileira button{
     background-color: antiquewhite;
     border: antiquewhite;
-    
+    cursor: pointer;
+}
+.fileira button:hover{
+    background-color: rgb(59, 10, 10);
 }
 
 h3{
@@ -203,6 +206,11 @@ h3{
     border-color: rgb(59, 10, 10);
     border: solid 3px;
     border-radius: 8px;
+    cursor: pointer;
+}
+
+.login_cadastro button:hover{
+    border: solid 5px;
 }
 
 .tituloLogin{
@@ -256,6 +264,11 @@ h5{
     border-color: rgb(59, 10, 10);
     border: solid 3px;
     border-radius: 8px;
+    cursor: pointer;
+}
+
+.botaoCadastro button:hover{
+    border: solid 5px;
 }
 
 h6{
@@ -281,7 +294,12 @@ h6{
     font-size: 25px;
     font-family: monospace;
     background-color:rgb(160, 155, 50);
-    border-color: rgb(59, 10, 10);
     border: solid 3px;
     border-radius: 8px;
+    cursor: pointer;
+    border-color: rgb(59, 10, 10);
+}
+
+.fileiraCadastro button:hover{
+    border: solid 5px;
 }
