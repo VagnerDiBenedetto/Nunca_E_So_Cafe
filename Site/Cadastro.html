@@ -36,12 +36,12 @@
             <br>
             <br>
             <div class="fileiraCadastro">
-                <div class="">
+                <div>
                     E-mail:<br>
                     <input onkeyUp="validacao()" type="text" id="inputEmail"><br>
                     <br>
-                    Username:<br>
-                    <input onkeyup="validacao()" type="text" id="inputUsername"><br>
+                    Confirmação de E-mail:<br>
+                    <input onkeyUp="validacao()" type="text" id="inputConfirmaEmail"><br>
                     <br>
                     Senha:<br>
                     <input onkeyup="validacao()" type="text" id="inputSenha"><br>
@@ -54,6 +54,26 @@
                     Nome:<br>
                     <input onkeyup="validacao()" type="text" id="inputNome"><br>
                     <br>
+                    Username:<br>
+                    <input onkeyup="validacao()" type="text" id="inputUsername"><br>
+                    <br>
+                    Data de Nascimento:<br>
+                    <input type="text" id="inputData_de_Nascimento"><br>
+                    <br>
+                    Numero de telefone:<br>
+                    <input type="text" id="inputNumero_de_Telefone"><br>
+                    <br>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="tituloCadastro">
+                Endereço:
+            </div>
+            <br>
+            <br>
+            <div class="fileiraCadastro">
+                <div>
                     Cep:<br>
                     <input onkeyup="validacao()" type="text" id="inputCep"><br>
                     <br>
@@ -74,9 +94,7 @@
                     Referencia:(opicional)<br>
                     <input type="text" id="inputReferencia"><br>
                     <br>
-                    Data de Nascimento:<br>
-                    <input type="text" id="inputData_de_Nascimento"><br>
-                    <br>
+                    
                 </div>
             </div>     
             <div id="divValidacao"></div> 
@@ -93,11 +111,13 @@
 
     function validacao(){          
         var email = inputEmail.value;
-        var username = inputUsername.value;
+        var confirmaEmail = inputConfirmaEmail.value;
         var senha = inputSenha.value;
         var tamanhoSenha = senha.length;
         var confirmaSenha = inputConfirmaSenha.value;
         var nome = inputNome.value;
+        var username = inputUsername.value;
+        var numeroTelefone = inputNumero_de_Telefone.value;
         var cep = inputCep.value;
         var tamanhoCep = cep.length;
         var estado = inputEstado.value;
@@ -202,11 +222,13 @@
 
     function cadastro(){          
         var email = inputEmail.value;
-        var username = inputUsername.value;
+        var confirmaEmail = inputConfirmaEmail.value;
         var senha = inputSenha.value;
         var tamanhoSenha = senha.length;
         var confirmaSenha = inputConfirmaSenha.value;
         var nome = inputNome.value;
+        var username = inputUsername.value;
+        var numeroTelefone = inputNumero_de_Telefone.value;
         var cep = inputCep.value;
         var tamanhoCep = cep.length;
         var estado = inputEstado.value;
@@ -269,6 +291,10 @@
             somaValidados ++;
         }
 
+        if(confirmaEmail == email){
+            somaValidados ++;
+        }
+
         if (username != username.toLowerCase() && username != username.toUpperCase()){
             somaValidados ++;
         }
@@ -308,8 +334,14 @@
             somaValidados ++;
         }
 
-        if (somaValidados == 11){
+        if (numeroTelefone.length == 11){
+            somaValidados ++;
+        }
+
+        if (somaValidados == 12){
             window.location.href="Pesquisa(1).html";
+        }else{
+            alert("Todos os campos devem ser preenchidos.")
         }
     }
 

@@ -238,8 +238,9 @@ h5{
 
 .tituloCadastro{
     width: 72%;
-    text-align: start;
+    text-align: center;
     font-size: 60px;
+    
 }
 
 .fileiraCadastro input{
@@ -302,4 +303,10 @@ h6{
 
 .fileiraCadastro button:hover{
     border: solid 5px;
+}
+
+.pesquisa{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

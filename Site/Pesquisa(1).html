@@ -26,60 +26,281 @@
         <div class="container">
             <div class="titulo">
                 <img class="imgTitulo" src="Imagens/titulo esquerda.png" alt="Ramo de café">
-                <h1>Cadastro</h1>
+                <h1>Pesquisa</h1>
                 <img class="imgTitulo" src="Imagens/titulo direita.png" alt="Ramo de café">
             </div>
             <br>
-            <div class="tituloCadastro">
-            Qual entre as opções te traz mais interesse?
+
+
+            <div id="divInteresse" class="pesquisa">
+                <div class="tituloCadastro">
+                    Qual entre as opções te traz mais interesse?
+                </div>
+                <br>
+                <br>
+                <div class="fileiraCadastro">
+                    <div>
+                        <button onclick="cienciasHumanasInteresse()">Ciências Humanas</button>
+                    </div>
+                    <div>
+                        <button onclick="linguaInteresse()">Linguas</button>
+                    </div>
+                    <div>
+                        <button onclick="artesanatoInteresse()">Artesanato</button>
+                    </div>
+                </div>   
+                <div class="fileiraCadastro">
+                    <div>
+                        <button onclick="artesPerformaticasInteresse()">Artes Perfomáticas</button>
+                    </div>
+                    <div>
+                        <button onclick="artesLiterariasInteresse()">Artes Literárias</button>
+                    </div>
+                    <div>
+                        <button onclick="artesVisuaisInteresse()">Artes Visuais</button>
+                    </div>
+                </div>  
+                <div class="fileiraCadastro">
+                    <br>
+                    <br>
+                    <br>
+                </div>   
             </div>
-            <br>
-            <br>
-            <div class="fileiraCadastro">
-                <div>
-                    <button onclick="cienciasHumanas()">Ciências Humanas</button>
+
+            <div style="display: none;" id="divInteresseHumanas" class="pesquisa">
+                <div class="tituloCadastro">
+                    Qual entre as opções te traz mais interesse?
                 </div>
-                <div>
-                   <button>Ciências Biológicas</button>
-                </div>
-                <div>
-                    <button>Ciências Exatas</button>
-                </div>
-            </div>    
-            <div class="fileiraCadastro">
-                <div>
-                    <button>Agricultura</button>
-                </div>
-                <div>
-                   <button>Linguagens</button>
-                </div>
-                <div>
-                    <button>Artesanato</button>
-                </div>
-            </div>   
-            <div class="fileiraCadastro">
-                <div>
-                    <button>Culinária</button>
-                </div>
-                <div>
-                   <button>Literatura</button>
-                </div>
-                <div>
-                    <button>Artes</button>
-                </div>
-            </div>  
-            <div class="fileiraCadastro">
                 <br>
                 <br>
+                <div class="fileiraCadastro">
+                    <div>
+                        <button>Filosofia</button>
+                    </div>
+                    <div>
+                       <button>Sociologia</button>
+                    </div>
+                    <div>
+                        <button>História</button>
+                    </div>
+                </div>    
+                <div class="fileiraCadastro">
+                    <div>
+                        <button>Geografia</button>
+                    </div>
+                    <div>
+                       <button>Psicologia</button>
+                    </div>
+                    <div>
+                        <button>Ciência Política</button>
+                    </div>
+                </div>   
+                <div class="fileiraCadastro">
+                    <br>
+                    <br>
+                    <br>
+                </div>   
+            </div>
+
+            <div style="display: none;" id="divInteresseArtesanato" class="pesquisa">
+                <div class="tituloCadastro">
+                    Qual entre as opções te traz mais interesse?
+                </div>
                 <br>
-            </div>   
+                <br>
+                <div class="fileiraCadastro">
+                    <div>
+                        <button>Biscuit</button>
+                    </div>
+                    <div>
+                       <button>Decoupage</button>
+                    </div>
+                    <div>
+                        <button>Patchwork</button>
+                    </div>
+                </div>    
+                <div class="fileiraCadastro">
+                    <div>
+                        <button>Reciclagem</button>
+                    </div>
+                    <div>
+                       <button>Bordado</button>
+                    </div>
+                    <div>
+                        <button>Fuxico</button>
+                    </div>
+                </div>   
+                <div class="fileiraCadastro">
+                    <div>
+                        <button>Velas Artesanais</button>
+                    </div>
+                    <div>
+                       <button>Sabonetes Artesanais</button>
+                    </div>
+                    <div>
+                        <button>Trabalho em MDF</button>
+                    </div>
+                </div>   
+                <div class="fileiraCadastro">
+                    <br>
+                    <br>
+                    <br>
+                </div>   
+            </div>
+
+            <div style="display: none;" id="divInteresseArtesPerformaticas" class="pesquisa">
+                <div class="tituloCadastro">
+                    Qual entre as opções te traz mais interesse?
+                </div>
+                <br>
+                <br>
+                <div class="fileiraCadastro">
+                    <div>
+                        <button>Dança</button>
+                    </div>
+                    <div>
+                       <button>Música</button>
+                    </div>
+                    <div>
+                        <button>Teatro</button>
+                    </div>
+                </div>    
+                <div class="fileiraCadastro">
+                    <br>
+                    <br>
+                    <br>
+                </div>   
+            </div>
+
+            <div style="display: none;" id="divInteresseArtesLiterarias" class="pesquisa">
+                <div class="tituloCadastro">
+                    Qual entre as opções te traz mais interesse?
+                </div>
+                <br>
+                <br>
+                <div class="fileiraCadastro">
+                    <div>
+                        <button>Drama</button>
+                    </div>
+                    <div>
+                       <button>Poesia</button>
+                    </div>
+                    <div>
+                        <button>Prosa</button>
+                    </div>
+                </div>    
+                <div class="fileiraCadastro">
+                    <br>
+                    <br>
+                    <br>
+                </div>   
+            </div>
+
+            <div style="display: none;" id="divInteresseArtesVisuais" class="pesquisa">
+                <div class="tituloCadastro">
+                    Qual entre as opções te traz mais interesse?
+                </div>
+                <br>
+                <br>
+                <div class="fileiraCadastro">
+                    <div>
+                        <button>Desenho</button>
+                    </div>
+                    <div>
+                       <button>Pintura</button>
+                    </div>
+                    <div>
+                        <button>Cinema</button>
+                    </div>
+                </div>
+                <div class="fileiraCadastro">
+                    <div>
+                        <button>Cerâmica</button>
+                    </div>
+                    <div>
+                       <button>Escultura</button>
+                    </div>
+                    <div>
+                        <button>Fotografia</button>
+                    </div>
+                </div>    
+                <div class="fileiraCadastro">
+                    <br>
+                    <br>
+                    <br>
+                </div>   
+            </div>
+
+            <div style="display: none;" id="divInteresseLinguas" class="pesquisa">
+                <div class="tituloCadastro">
+                    Qual entre as opções te traz mais interesse?
+                </div>
+                <br>
+                <br>
+                <div class="fileiraCadastro">
+                    <div>
+                        <button>Inglês</button>
+                    </div>
+                    <div>
+                       <button>Mandarim</button>
+                    </div>
+                    <div>
+                        <button>Japonês</button>
+                    </div>
+                </div>
+                <div class="fileiraCadastro">
+                    <div>
+                        <button>Espanhol</button>
+                    </div>
+                    <div>
+                       <button>Francês</button>
+                    </div>
+                    <div>
+                        <button>Alemão</button>
+                    </div>
+                </div>    
+                <div class="fileiraCadastro">
+                    <br>
+                    <br>
+                    <br>
+                </div>   
+            </div>
+
         </div>
-        <!-- <img class="imgFundo" src="Imagens/Final.png" alt="Denho de Café"> -->
     </div>
 
     <script>
 
-        function cienciasHumanas(){
-            window.location.href="Pesquisa(humanas).html";
+        function cienciasHumanasInteresse(){
+            divInteresse.style.display = "none";
+            divInteresseHumanas.style.display = "flex";
         }
+
+        function artesanatoInteresse(){
+            divInteresse.style.display = "none";
+            divInteresseArtesanato.style.display = "flex";
+        }
+
+        function linguaInteresse(){
+            divInteresse.style.display = "none";
+            divInteresseLinguas.style.display = "flex";
+        }
+
+        function artesPerformaticasInteresse(){
+            divInteresse.style.display = "none";
+            divInteresseArtesPerformaticas.style.display = "flex";
+        }
+
+        function artesLiterariasInteresse(){
+            divInteresse.style.display = "none";
+            divInteresseArtesLiterarias.style.display = "flex";
+        }
+
+        function artesVisuaisInteresse(){
+            divInteresse.style.display = "none";
+            divInteresseArtesVisuais.style.display = "flex";
+        }
+
+        
+
     </script>
