@@ -54,9 +54,6 @@
                     Nome:<br>
                     <input onkeyup="validacao()" type="text" id="inputNome"><br>
                     <br>
-                    Username:<br>
-                    <input onkeyup="validacao()" type="text" id="inputUsername"><br>
-                    <br>
                     Data de Nascimento:<br>
                     <input type="text" id="inputData_de_Nascimento"><br>
                     <br>
@@ -104,6 +101,7 @@
         </div>
         <!-- <img class="imgFundo" src="Imagens/Final.png" alt="Denho de Café"> -->
     </div>
+    
 </body>
 
 <script>
@@ -116,7 +114,6 @@
         var tamanhoSenha = senha.length;
         var confirmaSenha = inputConfirmaSenha.value;
         var nome = inputNome.value;
-        var username = inputUsername.value;
         var numeroTelefone = inputNumero_de_Telefone.value;
         var cep = inputCep.value;
         var tamanhoCep = cep.length;
@@ -182,12 +179,6 @@
             textoValidacao += `<h6 style="color: blue";>* O E-mail está correto.</h6><br>`;
         }
 
-        if (username == username.toLowerCase() || username == username.toUpperCase()){
-            textoValidacao += `<h6 style="color: red";>* O Username deve ter ao menos uma letra maiuscula e uma letra misucaula.</h6><br>`; 
-        }else{
-            textoValidacao += `<h6 style="color: blue";>* O Username está correto.</h6><br>`;
-        }
-
         if(tamanhoSenha < 8){
             textoValidacao += `<h6 style="color: red";>* A Senha deve conter ao menos 8 caracteres.</h6><br>`;
         }else if (senha == senha.toLowerCase() || senha == senha.toUpperCase()){
@@ -227,7 +218,6 @@
         var tamanhoSenha = senha.length;
         var confirmaSenha = inputConfirmaSenha.value;
         var nome = inputNome.value;
-        var username = inputUsername.value;
         var numeroTelefone = inputNumero_de_Telefone.value;
         var cep = inputCep.value;
         var tamanhoCep = cep.length;
@@ -295,10 +285,6 @@
             somaValidados ++;
         }
 
-        if (username != username.toLowerCase() && username != username.toUpperCase()){
-            somaValidados ++;
-        }
-
         if(tamanhoSenha >= 8 && senha != senha.toLowerCase() && senha != senha.toUpperCase() && validacaoEspecial == true && validacaoNumero == true){
             somaValidados ++;
         }
@@ -339,7 +325,7 @@
         }
 
         if (somaValidados == 12){
-            window.location.href="Pesquisa(1).html";
+            window.location.href="Pesquisa.html";
         }else{
             alert("Todos os campos devem ser preenchidos.")
         }
