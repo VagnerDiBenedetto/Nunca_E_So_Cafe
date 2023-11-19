@@ -1,0 +1,145 @@
+/* header */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Cinzel', serif;
+}
+
+.header{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.header img{
+    width: 10%;
+}
+
+.header a{
+    text-decoration: none;
+    color: #f5cd55;
+}
+
+.header .barraNavegacao{
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    width: 90%;
+    justify-content: space-around;
+}
+
+.login{
+width: 100%;
+text-align: end;
+}
+
+.container{
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+}
+
+.header .logo{
+    font-size: 40px;
+}
+
+/* Body */
+
+.body{
+    width: 100%;
+    height: fit-content;
+    background-image: url(Imagens/Background\ Body.png);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fundo{
+    background-color: black;
+    width: 90vw;
+    border: solid #f5cd55;
+    display: flex;
+    justify-content: center;
+}
+
+.fundo .container{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fundo h2{
+    color: #f5cd55;
+    text-align: center;
+    margin-top: 5%;
+    font-size: 60px;
+}
+
+.fundo span{
+    color: white;
+    font-size: 35px;
+    text-align: justify;
+}
+
+.fundo span a{
+    color: #f5cd55;
+}
+
+.VantagensDesvantagens .texto img{
+    width: 300px;
+}
+
+.fileira img{
+    width: 35vw;
+}
+
+.VantagensDesvantagens{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.VantagensDesvantagens img{
+    width: 35vw;
+}
+
+.VantagensDesvantagens .texto{
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.fundo .anuncio {
+    width: 100%;
+    display: flex;
+    justify-content: center
+}
+
+.fundo .anuncio img{
+    width: 50%;
+}
+
+/* footer */
+
+.footer{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer a{
+    color: #f5cd55;
+}
+
+.footer .link{
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    justify-content: space-around;
+    text-align: center;
+}

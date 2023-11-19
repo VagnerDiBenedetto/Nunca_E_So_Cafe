@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre o Projeto</title>
+    <link rel = "icon" href="Imagens/LogoFundo.png" type="image/x-icon">
+    <link rel="stylesheet" href="Style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Playfair+Display:wght@600&family=Rowdies:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="body">
+        <div class="fundo">
+            <div class="sistemaHeader">
+                <div class="usuario">
+                    <span>Nome do Usuário</span>
+                </div>
+                <div class="sair">
+                    <a href="">Sair</a>
+                </div>
+            </div>
+            <div class="sistemaBody">
+                <div class="sistemaMenu">
+                    <button onclick="cafeConhecimento()">Café e Conhecimento</button>
+                    <div style="display: none;" id="divCafeConhecimento" class="setores">
+                        <button onclick="">DadosGerais</button>
+                        <button onclick="">Matérias Escolares</button>
+                        <button onclick="">Ciências Humanas</button>
+                        <button onclick="">Línguas</button>
+                        <button onclick="">Artesanato</button>
+                        <button onclick="">Artes Perfomáticas</button>
+                        <button onclick="">Artes Literárias</button>
+                        <button onclick="">Artes Visuais</button>
+                    </div>
+                    <button onclick="">Uma Boa Leitura</button>
+                    <div style="display: none;" id="divUmaBoaLeitura" class="setores">
+
+                    </div>
+                </div>
+                <div class="sistemaDados">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    var contadorCafeConhecimento = 0;
+
+    function cafeConhecimento(){
+        contadorCafeConhecimento ++;
+
+        if(contadorCafeConhecimento % 2 == 0){
+        divCafeConhecimento.style.display = "none"
+        }else{
+        divCafeConhecimento.style.display = "block"
+        }
+    }
+
+</script>
