@@ -28,14 +28,16 @@
                 <div class="sistemaMenu">
                     <button onclick="cafeConhecimento()">Café e Conhecimento</button>
                     <div style="display: none;" id="divCafeConhecimento" class="setores">
-                        <button onclick="">Dados Gerais</button>
-                        <button onclick="">Matérias Escolares</button>
-                        <button onclick="">Ciências Humanas</button>
-                        <button onclick="">Línguas</button>
-                        <button onclick="">Artesanato</button>
-                        <button onclick="">Artes Perfomáticas</button>
-                        <button onclick="">Artes Literárias</button>
-                        <button onclick="">Artes Visuais</button>
+                        <button onclick="pesquisa()">Pesquisa</button>
+                        <button onclick="dodosGerais()">Dados Gerais</button>
+                        <button onclick="materiasDificudade()">Matérias com Dificuldade</button>
+                        <button onclick="materiasFacilidade()">Matérias com Facilidade</button>
+                        <button onclick="cienciasHumanas()">Ciências Humanas</button>
+                        <button onclick="linguas()">Línguas</button>
+                        <button onclick="artesanato()">Artesanato</button>
+                        <button onclick="artesPerformaticas()">Artes Perfomáticas</button>
+                        <button onclick="artesLiterarias()">Artes Literárias</button>
+                        <button onclick="artesVisuais()">Artes Visuais</button>
                     </div>
                     <button onclick="umaBoaLeitura()">Uma Boa Leitura</button>
                     <div style="display: none;" id="divUmaBoaLeitura" class="setores">
@@ -45,54 +47,907 @@
                         <button onclick="">Eventos com escritores</button>
                     </div>
                 </div>
-                <div id="divDadosgerais">
+                <div style="display: block;" id="divInicial">
+                    <div class="sistemaDados">
+                        <div class="tituloDados">
+                            <span>Seja Bem Vindo!</span>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+
+                <div style="display: none;" id="divPesquisa">
+                    <div style="display: block;" id="divInteresse"> 
+                        <div class="pesquisa">
+                            <div class="tituloPesquisa">
+                                Qual entre as opções te traz mais interesse?
+                            </div>
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="cienciasHumanasInteresse()">Ciências Humanas</button>
+                                </div>
+                                <div>
+                                    <button onclick="linguaInteresse()">Linguas</button>
+                                </div>
+                                <div>
+                                    <button onclick="artesanatoInteresse()">Artesanato</button>
+                                </div>
+                            </div>   
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="artesPerformaticasInteresse()">Artes Perfomáticas</button>
+                                </div>
+                                <div>
+                                    <button onclick="artesLiterariasInteresse()">Artes Literárias</button>
+                                </div>
+                                <div>
+                                    <button onclick="artesVisuaisInteresse()">Artes Visuais</button>
+                                </div>
+                            </div>  
+                            <div class="fileiraPesquisa">
+                                <br>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: none;" id="divInteresseHumanas">
+                        <div class="pesquisa">
+                            <div class="tituloPesquisa">
+                                Qual entre as opções te traz mais interesse?
+                            </div>
+                            <br>
+                            <br>
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="filosofiaInteresse()">Filosofia</button>
+                                </div>
+                                <div>
+                                    <button onclick="sociologiaInteresse()">Sociologia</button>
+                                </div>
+                                <div>
+                                    <button onclick="comunicacaoInteresse()">Comuinicação</button>
+                                </div>
+                            </div>    
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="hitoriaInteresse()">História</button>
+                                </div>
+                                <div>
+                                    <button onclick="cienciaPoliticaInteresse()">Ciência Política</button>
+                                </div>
+                                <div>
+                                    <button onclick="administracaoInteresse()">Administração</button>
+                                </div>
+                            </div>   
+                            <div class="fileiraPesquisa">
+                                <br>
+                                <br>
+                                <br>
+                            </div>   
+                        </div>
+                    </div>
+
+                    <div style="display: none;" id="divInteresseArtesanato">
+                        <div class="pesquisa">
+                            <div class="tituloPesquisa">
+                                Qual entre as opções te traz mais interesse?
+                            </div>
+                            <br>
+                            <br>
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="biscuitInteresse()">Biscuit</button>
+                                </div>
+                                <div>
+                                    <button onclick="decoupageInteresse()">Decoupage</button>
+                                </div>
+                                <div>
+                                    <button onclick="patchworkInteresse()">Patchwork</button>
+                                </div>
+                            </div>    
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="reciclagemInteresse()">Reciclagem</button>
+                                </div>
+                                <div>
+                                    <button onclick="bordadoInteresse()">Bordado</button>
+                                </div>
+                                <div>
+                                    <button onclick="fuxicoInteresse()">Fuxico</button>
+                                </div>
+                            </div>   
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="velasArtesanaisInteresse()">Velas Artesanais</button>
+                                </div>
+                                <div>
+                                    <button onclick="sabonetesArtesanaisInteresse()">Sabonetes Artesanais</button>
+                                </div>
+                                <div>
+                                    <button onclick="mdfInteresse()">Trabalho em MDF</button>
+                                </div>
+                            </div>   
+                            <div class="fileiraPesquisa">
+                                <br>
+                                <br>
+                                <br>
+                            </div>   
+                        </div>
+                    </div>
+
+                    <div style="display: none;" id="divInteresseArtesPerformaticas">
+                        <div class="pesquisa">
+                            <div class="tituloPesquisa">
+                                Qual entre as opções te traz mais interesse?
+                            </div>
+                            <br>
+                            <br>
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="dancaInteresse()">Dança</button>
+                                </div>
+                                <div>
+                                    <button onclick="musicaInteresse()">Música</button>
+                                </div>
+                                <div>
+                                    <button onclick="teatroInteresse()">Teatro</button>
+                                </div>
+                            </div>    
+                            <div class="fileiraPesquisa">
+                                <br>
+                                <br>
+                                <br>
+                            </div>  
+                        </div> 
+                    </div>
+
+                    <div style="display: none;" id="divInteresseArtesLiterarias">
+                        <div class="pesquisa">
+                            <div class="tituloPesquisa">
+                                Qual entre as opções te traz mais interesse?
+                            </div>
+                            <br>
+                            <br>
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="dramaInteresse()">Drama</button>
+                                </div>
+                                <div>
+                                <button onclick="poesiaInteresse()">Poesia</button>
+                                </div>
+                                <div>
+                                    <button onclick="prosaInteresse()">Prosa</button>
+                                </div>
+                            </div>    
+                            <div class="fileiraPesquisa">
+                                <br>
+                                <br>
+                                <br>
+                            </div>  
+                        </div> 
+                    </div>
+
+                    <div style="display: none;" id="divInteresseArtesVisuais">
+                        <div class="pesquisa">
+                            <div class="tituloPesquisa">
+                                Qual entre as opções te traz mais interesse?
+                            </div>
+                            <br>
+                            <br>
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="desenhoInteresse()">Desenho</button>
+                                </div>
+                                <div>
+                                <button onclick="pinturaInteresse()">Pintura</button>
+                                </div>
+                                <div>
+                                    <button onclick="cinemaInteresse()">Cinema</button>
+                                </div>
+                            </div>
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="ceramicaInteresse()">Cerâmica</button>
+                                </div>
+                                <div>
+                                <button onclick="esculturaInteresse()">Escultura</button>
+                                </div>
+                                <div>
+                                    <button onclick="fotografiaInteresse()">Fotografia</button>
+                                </div>
+                            </div>    
+                            <div class="fileiraPesquisa">
+                                <br>
+                                <br>
+                                <br>
+                            </div>  
+                        </div> 
+                    </div>
+
+                    <div style="display: none;" id="divInteresseLinguas">
+                        <div class="pesquisa">
+                            <div class="tituloPesquisa">
+                                Qual entre as opções te traz mais interesse?
+                            </div>
+                            <br>
+                            <br>
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="inglesInteresse()">Inglês</button>
+                                </div>
+                                <div>
+                                    <button onclick="mandarimInteresse()">Mandarim</button>
+                                </div>
+                                <div>
+                                    <button onclick="japonesInteresse()">Japonês</button>
+                                </div>
+                            </div>
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="espanholInteresse()">Espanhol</button>
+                                </div>
+                                <div>
+                                    <button onclick="francesInteresse()">Francês</button>
+                                </div>
+                                <div>
+                                    <button onclick="alemaoInteresse()">Alemão</button>
+                                </div>
+                            </div>    
+                            <div class="fileiraPesquisa">
+                                <br>
+                                <br>
+                                <br>
+                            </div>   
+                        </div>
+                    </div>
+
+                    <div style="display: none;" id="divNecessidadeReforco">
+                        <div class="pesquisa">
+                            <div class="tituloPesquisa">
+                                Você sente necessidade de reforço nas matérias escolares?
+                            </div>
+                            <br>
+                            <br>
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="necessecitaReforco()">Sim</button>
+                                </div>
+                                <div>
+                                    <button onclick="naoNecessecitaReforco()">Não</button>
+                                </div>
+                            </div> 
+                            <div class="fileiraPesquisa">
+                                <br>
+                                <br>
+                                <br>
+                            </div>   
+                        </div>
+                    </div>
+
+                    <div style="display: none;" id="divDificuldadeMaterias">
+                        <div class="pesquisa">
+                            <div class="tituloPesquisa">
+                                Em qual matéria você tem mais dificuldade?
+                            </div>
+                            <br>
+                            <br>
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="dificuldadeMatematica()">Matemática</button>
+                                </div>
+                                <div>
+                                    <button onclick="dificuldadePortugues()">Português</button>
+                                </div>
+                                <div>
+                                    <button onclick="dificuldadeHistoria()">História</button>
+                                </div>
+                            </div> 
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="dificuldadeGeografia()">Geografia</button>
+                                </div>
+                                <div>
+                                    <button onclick="dificuldadeQuimica()">Quimica</button>
+                                </div>
+                                <div>
+                                    <button onclick="dificuldadeFisica()">Fisica</button>
+                                </div>
+                            </div> 
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="dificuldadeBiologia()">Biologia</button>
+                                </div>
+                                <div>
+                                    <button onclick="dificuldadeRedacao()">Redação</button>
+                                </div>
+                                <div>
+                                    <button onclick="dificuldadeGeometria()">Geometria</button>
+                                </div>
+                            </div> 
+                            <div class="fileiraPesquisa">
+                                <br>
+                                <br>
+                                <br>
+                            </div>  
+                        </div> 
+                    </div>
+
+                    <div style="display: none;" id="divFinalizacao">
+                        <div class="pesquisa">
+                            <div class="tituloPesquisa">
+                                Muito Obrigado!!!
+                            </div>
+                            <br>
+                            <br>
+                            <div class="fileiraPesquisa">
+                                <br>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: none;" id="divFacilidadeMaterias">
+                        <div class="pesquisa">
+                            <div class="tituloPesquisa">
+                                Em qual matéria você tem mais facilidade?
+                            </div>
+                            <br>
+                            <br>
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="facilidadeMatematica()">Matemática</button>
+                                </div>
+                                <div>
+                                    <button onclick="facilidadePortugues()">Português</button>
+                                </div>
+                                <div>
+                                    <button onclick="facilidadeHistoria()">História</button>
+                                </div>
+                            </div> 
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="facilidadeGeografia()">Geografia</button>
+                                </div>
+                                <div>
+                                    <button onclick="facilidadeQuimica()">Quimica</button>
+                                </div>
+                                <div>
+                                    <button onclick="facilidadeFisica()">Fisica</button>
+                                </div>
+                            </div> 
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <button onclick="facilidadeBiologia()">Biologia</button>
+                                </div>
+                                <div>
+                                    <button onclick="facilidadeRedacao()">Redação</button>
+                                </div>
+                                <div>
+                                    <button onclick="facilidadeGeometria()">Geometria</button>
+                                </div>
+                            </div> 
+                            <div class="fileiraPesquisa">
+                                <br>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div style="display: none;" id="divDadosgerais">
                     <div class="sistemaDados">
                         <div class="tituloDados">
                             <span>Dados Gerais</span>
                         </div>
-
+                        <br>
+                        <br>
                         <div class="Dados">
                             <div class="coluna">
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <th>1º</th>
-                                            <th>Ciências Humanas</th>
-                                        </tr>
-                                        <tr>
-                                            <th>2º</th>
-                                            <th>Artes Visuais</th>
-                                        </tr>
-                                        <tr>
-                                            <th>3º</th>
-                                            <th>Artes Performáticas</th>
-                                        </tr>
-                                        <tr>
-                                            <th>4º</th>
-                                            <th>Artes Literárias</th>
-                                        </tr>
-                                        <tr>
-                                            <th>5º</th>
-                                            <th>Línguas</th>
-                                        </tr>
-                                        <tr>
-                                            <th>6º</th>
-                                            <th>Artesanato</th>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div>
+                                    <div>
+                                        <span>Classificação Áreas de Interesse</span>
+                                    </div>
+                                    <div>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <th>1º</th>
+                                                    <th>Ciências Humanas</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>2º</th>
+                                                    <th>Artes Visuais</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>3º</th>
+                                                    <th>Artes Performáticas</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>4º</th>
+                                                    <th>Artes Literárias</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>5º</th>
+                                                    <th>Línguas</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>6º</th>
+                                                    <th>Artesanato</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <span>Votos Necessidade de Reforço</span>
+                                    </div>
+                                    <div>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <th>Necessita</th>
+                                                    <th>24</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Não Necessita</th>
+                                                    <th>28</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                             <div class="coluna">
-                                <div class="graficos">
-                                    <canvas id="GraficoAreasDeInteresse"></canvas>
+                                <div>
+                                    <span>Areas de Interesse</span>
                                 </div>
-                                <div class="graficos">
-                                    <canvas id="GraficoNecessidadeReforco"></canvas>
+                                    <div class="graficos1">
+                                        <canvas id="GraficoAreasDeInteresse"></canvas>
+                                    </div>
+                                <div>
+                                    <span>Necessidade de Reforço</span>
+                                </div>
+                                    <div class="graficos">
+                                        <canvas id="GraficoNecessidadeReforco"></canvas>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: none;" id="divMateriasDificuldade">
+                    <div class="sistemaDados">
+                        <div class="tituloDados">
+                            <span>Matérias Escolares</span>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="Dados">
+                            <div class="coluna">
+                                <div>
+                                    <span>Matérias com Dificuldade</span>
+                                </div>
+                                <div>
+                                    <div>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <th>1º</th>
+                                                    <th>Química</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>2º</th>
+                                                    <th>Matemática</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>3º</th>
+                                                    <th>Redação</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>4º</th>
+                                                    <th>Física</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>5º</th>
+                                                    <th>Português</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>6º</th>
+                                                    <th>Biologia</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>7º</th>
+                                                    <th>Geografia</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>8º</th>
+                                                    <th>Geometria</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>9º</th>
+                                                    <th>História</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="coluna">
+                                <div class="graficos1">
+                                    <canvas id="GraficoDificuldadeBarra"></canvas>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div style="display: none;" id="divMateriasFacilidade">
+                    <div class="sistemaDados">
+                        <div class="tituloDados">
+                            <span>Matérias Escolares</span>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="Dados">
+                            <div class="coluna">
+                                <div>
+                                    <span>Matérias com Facilidade</span>
+                                </div>
+                                <div>
+                                    <div>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <th>1º</th>
+                                                    <th>Matemática</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>2º</th>
+                                                    <th>Português</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>3º</th>
+                                                    <th>História</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>4º</th>
+                                                    <th>Geografia</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>5º</th>
+                                                    <th>Redação</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>6º</th>
+                                                    <th>Biologia</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>7º</th>
+                                                    <th>Física</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>8º</th>
+                                                    <th>Geometria</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>9º</th>
+                                                    <th>Química</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="coluna">
+                                <div class="graficos1">
+                                    <canvas id="GraficoFacilidadeBarra"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: none;" id="divCienciasHumanas">
+                    <div class="sistemaDados">
+                        <div class="tituloDados">
+                            <span>Ciências Humanas</span>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="Dados">
+                            <div class="coluna">
+                                <div>
+                                    <div>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <th>1º</th>
+                                                    <th>História</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>2º</th>
+                                                    <th>Filosofia</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>3º</th>
+                                                    <th>Comunicação</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>4º</th>
+                                                    <th>Ciência Politica</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>5º</th>
+                                                    <th>Administração</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>6º</th>
+                                                    <th>Sociologia</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="coluna">
+                                <div class="graficos1">
+                                    <canvas id="GraficoCienciaHumanas"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="display: none;" id="divLinguas">
+                    <div class="sistemaDados">
+                        <div class="tituloDados">
+                            <span>Linguas</span>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="Dados">
+                            <div class="coluna">
+                                <div>
+                                    <div>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <th>1º</th>
+                                                    <th>Inglês</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>2º</th>
+                                                    <th>Japonês</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>3º</th>
+                                                    <th>Espanhol</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>4º</th>
+                                                    <th>Alemão</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>5º</th>
+                                                    <th>Mandarim</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>6º</th>
+                                                    <th>Francê</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="coluna">
+                                <div class="graficos1">
+                                    <canvas id="GraficoLinguas"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: none;" id="divArtesanato">
+                    <div class="sistemaDados">
+                        <div class="tituloDados">
+                            <span>Artesanato</span>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="Dados">
+                            <div class="coluna">
+                                <div>
+                                    <div>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <th>1º</th>
+                                                    <th>Biscuit</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>2º</th>
+                                                    <th>Trabalho em MDF</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>3º</th>
+                                                    <th>Bordado</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>4º</th>
+                                                    <th>Patchwork</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>5º</th>
+                                                    <th>Velas Artesanais</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>6º</th>
+                                                    <th>Reciclagem</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>7º</th>
+                                                    <th>Sabonetes Artesanais</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>8º</th>
+                                                    <th>Decoupage</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>9º</th>
+                                                    <th>Fuxico</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="coluna">
+                                <div class="graficos1">
+                                    <canvas id="GraficoArtesanato"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: none;" id="divArtesPerformaticas">
+                    <div class="sistemaDados">
+                        <div class="tituloDados">
+                            <span>Artes Performáticas</span>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="Dados">
+                            <div class="coluna">
+                                <div>
+                                    <div>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <th>1º</th>
+                                                    <th>Música</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>2º</th>
+                                                    <th>Dança</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>3º</th>
+                                                    <th>Teatro</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="coluna">
+                                <div class="graficos1">
+                                    <canvas id="GraficoArtesPerformaticas"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: none;" id="divArtesLiterarias">
+                    <div class="sistemaDados">
+                        <div class="tituloDados">
+                            <span>Artes Literárias</span>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="Dados">
+                            <div class="coluna">
+                                <div>
+                                    <div>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <th>1º</th>
+                                                    <th>Drama</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>2º</th>
+                                                    <th>Poesia</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>3º</th>
+                                                    <th>Prosa</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="coluna">
+                                <div class="graficos1">
+                                    <canvas id="GraficoArtesLiterarias"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: none;" id="divArtesVisuais">
+                    <div class="sistemaDados">
+                        <div class="tituloDados">
+                            <span>Artes Visuais</span>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="Dados">
+                            <div class="coluna">
+                                <div>
+                                    <div>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <th>1º</th>
+                                                    <th>Cinema</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>2º</th>
+                                                    <th>Desenho</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>3º</th>
+                                                    <th>Fotografia</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>4º</th>
+                                                    <th>Pintura</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>5º</th>
+                                                    <th>Escultura</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>6º</th>
+                                                    <th>Cerâmica</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="coluna">
+                                <div class="graficos1">
+                                    <canvas id="GraficoArtesVisuais"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -125,6 +980,506 @@
         }
     }
 
+    function dodosGerais(){
+        divInicial.style.display = "none";
+        divPesquisa.style.display = "none"
+        divDadosgerais.style.display = "block";
+        divMateriasDificuldade.style.display = "none";
+        divMateriasFacilidade.style.display = "none";
+        divCienciasHumanas.style.display = "none";
+        divLinguas.style.display ="none";
+        divArtesanato.style.display = "none";
+        divArtesPerformaticas.style.display = "none";
+        divArtesLiterarias.style.display = "none";
+        divArtesVisuais.style.display = "none";
+    }
+
+    function materiasDificudade(){
+        divInicial.style.display = "none";
+        divPesquisa.style.display = "none"
+        divDadosgerais.style.display = "none";
+        divMateriasDificuldade.style.display = "block";
+        divMateriasFacilidade.style.display = "none";
+        divCienciasHumanas.style.display = "none";
+        divLinguas.style.display ="none";
+        divArtesanato.style.display = "none";
+        divArtesPerformaticas.style.display = "none";
+        divArtesLiterarias.style.display = "none";
+        divArtesVisuais.style.display = "none";
+    }
+
+    function materiasFacilidade(){
+        divInicial.style.display = "none";
+        divPesquisa.style.display = "none"
+        divDadosgerais.style.display = "none";
+        divMateriasDificuldade.style.display = "none";
+        divMateriasFacilidade.style.display = "block";
+        divCienciasHumanas.style.display = "none";
+        divLinguas.style.display ="none";
+        divArtesanato.style.display = "none";
+        divArtesPerformaticas.style.display = "none";
+        divArtesLiterarias.style.display = "none";
+        divArtesVisuais.style.display = "none";
+    }
+
+    function cienciasHumanas(){
+        divInicial.style.display = "none";
+        divPesquisa.style.display = "none"
+        divDadosgerais.style.display = "none";
+        divMateriasDificuldade.style.display = "none";
+        divMateriasFacilidade.style.display = "none";
+        divCienciasHumanas.style.display = "block";
+        divLinguas.style.display ="none";
+        divArtesanato.style.display = "none";
+        divArtesPerformaticas.style.display = "none";
+        divArtesLiterarias.style.display = "none";
+        divArtesVisuais.style.display = "none";
+    }
+
+    function linguas(){
+        divInicial.style.display = "none";
+        divPesquisa.style.display = "none"
+        divDadosgerais.style.display = "none";
+        divMateriasDificuldade.style.display = "none";
+        divMateriasFacilidade.style.display = "none";
+        divCienciasHumanas.style.display = "none";
+        divLinguas.style.display ="block";
+        divArtesanato.style.display = "none";
+        divArtesPerformaticas.style.display = "none";
+        divArtesLiterarias.style.display = "none";
+        divArtesVisuais.style.display = "none";
+    }
+
+    function artesanato(){
+        divInicial.style.display = "none";
+        divPesquisa.style.display = "none"
+        divDadosgerais.style.display = "none";
+        divMateriasDificuldade.style.display = "none";
+        divMateriasFacilidade.style.display = "none";
+        divCienciasHumanas.style.display = "none";
+        divLinguas.style.display ="none";
+        divArtesanato.style.display = "block";
+        divArtesPerformaticas.style.display = "none";
+        divArtesLiterarias.style.display = "none";
+        divArtesVisuais.style.display = "none";
+    }
+
+    function artesPerformaticas(){
+        divInicial.style.display = "none";
+        divPesquisa.style.display = "none"
+        divDadosgerais.style.display = "none";
+        divMateriasDificuldade.style.display = "none";
+        divMateriasFacilidade.style.display = "none";
+        divCienciasHumanas.style.display = "none";
+        divLinguas.style.display ="none";
+        divArtesanato.style.display = "none";
+        divArtesPerformaticas.style.display = "block";
+        divArtesLiterarias.style.display = "none";
+        divArtesVisuais.style.display = "none";
+    }
+
+    function artesLiterarias(){
+        divInicial.style.display = "none";
+        divPesquisa.style.display = "none"
+        divDadosgerais.style.display = "none";
+        divMateriasDificuldade.style.display = "none";
+        divMateriasFacilidade.style.display = "none";
+        divCienciasHumanas.style.display = "none";
+        divLinguas.style.display ="none";
+        divArtesanato.style.display = "none";
+        divArtesPerformaticas.style.display = "none";
+        divArtesLiterarias.style.display = "block";
+        divArtesVisuais.style.display = "none";
+    }
+
+    function artesVisuais(){
+        divInicial.style.display = "none";
+        divPesquisa.style.display = "none"
+        divDadosgerais.style.display = "none";
+        divMateriasDificuldade.style.display = "none";
+        divMateriasFacilidade.style.display = "none";
+        divCienciasHumanas.style.display = "none";
+        divLinguas.style.display ="none";
+        divArtesanato.style.display = "none";
+        divArtesPerformaticas.style.display = "none";
+        divArtesLiterarias.style.display = "none";
+        divArtesVisuais.style.display = "block";
+    }
+
+    function pesquisa(){
+        
+        divInicial.style.display = "none";
+        divPesquisa.style.display = "block"
+        divDadosgerais.style.display = "none";
+        divMateriasDificuldade.style.display = "none";
+        divMateriasFacilidade.style.display = "none";
+        divCienciasHumanas.style.display = "none";
+        divLinguas.style.display ="none";
+        divArtesanato.style.display = "none";
+        divArtesPerformaticas.style.display = "none";
+        divArtesLiterarias.style.display = "none";
+        divArtesVisuais.style.display = "none";
+    }
+
+    function cienciasHumanasInteresse(){
+            divInteresse.style.display = "none";
+            divInteresseHumanas.style.display = "block";
+            var areaInteresse = "Cincias Humanas";
+        }
+
+        function artesanatoInteresse(){
+            divInteresse.style.display = "none";
+            divInteresseArtesanato.style.display = "block";
+            var areaInteresse = "Artesanato";
+        }
+
+        function linguaInteresse(){
+            divInteresse.style.display = "none";
+            divInteresseLinguas.style.display = "block";
+            var areaInteresse = "Linguas";
+        }
+
+        function artesPerformaticasInteresse(){
+            divInteresse.style.display = "none";
+            divInteresseArtesPerformaticas.style.display = "block";
+            var areaInteresse = "Artes Performáticas";
+        }
+
+        function artesLiterariasInteresse(){
+            divInteresse.style.display = "none";
+            divInteresseArtesLiterarias.style.display = "block";
+            var areaInteresse = "Artes Literárias";
+        }
+
+        function artesVisuaisInteresse(){
+            divInteresse.style.display = "none";
+            divInteresseArtesVisuais.style.display = "block";
+            var areaInteresse = "Artes Visuais";
+        }
+
+        function filosofiaInteresse(){
+            divInteresseHumanas.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Filosofia";
+        }
+
+        function sociologiaInteresse(){
+            divInteresseHumanas.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Sociologia";
+        }
+
+        function comunicacaoInteresse(){
+            divInteresseHumanas.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Comunicação";
+        }
+
+        function hitoriaInteresse(){
+            divInteresseHumanas.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "História";
+        }
+
+        function cienciaPoliticaInteresse(){
+            divInteresseHumanas.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Ciência Política";
+        }
+
+        function administracaoInteresse(){
+            divInteresseHumanas.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Administração";
+        }
+
+        function inglesInteresse(){
+            divInteresseLinguas.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Inglês";
+        }
+        
+        function mandarimInteresse(){
+            divInteresseLinguas.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Mandarim";
+        }
+        
+        function japonesInteresse(){
+            divInteresseLinguas.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Japônes";
+        }
+        
+        function espanholInteresse(){
+            divInteresseLinguas.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Espanhol";
+        }
+        
+        function francesInteresse(){
+            divInteresseLinguas.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Francês";
+        }
+        
+        function alemaoInteresse(){
+            divInteresseLinguas.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Alemão";
+        }
+        
+        function biscuitInteresse(){
+            divInteresseArtesanato.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Biscuit";
+        }
+        
+        function decoupageInteresse(){
+            divInteresseArtesanato.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Decoupage";
+        }
+        
+        function patchworkInteresse(){
+            divInteresseArtesanato.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Patchwork";
+        }
+        
+        function reciclagemInteresse(){
+            divInteresseArtesanato.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Reciclagem";
+        }
+        
+        function bordadoInteresse(){
+            divInteresseArtesanato.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Bordado";
+        }
+        
+        function fuxicoInteresse(){
+            divInteresseArtesanato.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Fuxico";
+        }
+        
+        function velasArtesanaisInteresse(){
+            divInteresseArtesanato.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Velas Artesanais";
+        }
+        
+        function sabonetesArtesanaisInteresse(){
+            divInteresseArtesanato.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Sabonetes Artesanais";
+        }
+        
+        function mdfInteresse(){
+            divInteresseArtesanato.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Trabalho em MDF";
+        }
+        
+        function dancaInteresse(){
+            divInteresseArtesPerformaticas.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Dança";
+        }
+        
+        function musicaInteresse(){
+            divInteresseArtesPerformaticas.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Música";
+        }
+        
+        function teatroInteresse(){
+            divInteresseArtesPerformaticas.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Teatro";
+        }
+        
+        function dramaInteresse(){
+            divInteresseArtesLiterarias.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Drama";
+        }
+        
+        function poesiaInteresse(){
+            divInteresseArtesLiterarias.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Poesia";
+        }
+        
+        function prosaInteresse(){
+            divInteresseArtesLiterarias.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Prosa";
+        }
+        
+        function desenhoInteresse(){
+            divInteresseArtesVisuais.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Desenho";
+        }
+        
+        function pinturaInteresse(){
+            divInteresseArtesVisuais.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Pintura";
+        }
+        
+        function cinemaInteresse(){
+            divInteresseArtesVisuais.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Cinema";
+        }
+        
+        function ceramicaInteresse(){
+            divInteresseArtesVisuais.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Cerâmica";
+        }
+        
+        function esculturaInteresse(){
+            divInteresseArtesVisuais.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Escultura";
+        }
+        
+        function fotografiaInteresse(){
+            divInteresseArtesVisuais.style.display = "none";
+            divNecessidadeReforco.style.display = "block";
+            var interesse = "Fotografia";
+        }
+
+        function necessecitaReforco(){
+            divNecessidadeReforco.style.display = "none";
+            divDificuldadeMaterias.style.display = "block";
+            var necessecitaReforco = "Sim";
+        }
+
+        function naoNecessecitaReforco(){
+            divNecessidadeReforco.style.display = "none";
+            divDificuldadeMaterias.style.display = "block";
+            var necessecitaReforco = "Não";
+        }
+
+        function dificuldadeMatematica(){
+            divDificuldadeMaterias.style.display = "none";
+            divFacilidadeMaterias.style.display = "block";
+            var dificuldadeMateria = "Matemática";
+        }
+
+        function dificuldadePortugues(){
+            divDificuldadeMaterias.style.display = "none";
+            divFacilidadeMaterias.style.display = "block";
+            var dificuldadeMateria = "Português";
+        }
+
+        function dificuldadeHistoria(){
+            divDificuldadeMaterias.style.display = "none";
+            divFacilidadeMaterias.style.display = "block";
+            var dificuldadeMateria = "História";
+        }
+
+        function dificuldadeGeografia(){
+            divDificuldadeMaterias.style.display = "none";
+            divFacilidadeMaterias.style.display = "block";
+            var dificuldadeMateria = "Geografia";
+        }
+
+        function dificuldadeQuimica(){
+            divDificuldadeMaterias.style.display = "none";
+            divFacilidadeMaterias.style.display = "block";
+            var dificuldadeMateria = "Quimica";
+        }
+
+        function dificuldadeFisica(){
+            divDificuldadeMaterias.style.display = "none";
+            divFacilidadeMaterias.style.display = "block";
+            var dificuldadeMateria = "Física";
+        }
+
+        function dificuldadeBiologia(){
+            divDificuldadeMaterias.style.display = "none";
+            divFacilidadeMaterias.style.display = "block";
+            var dificuldadeMateria = "Biologia";
+        }
+
+        function dificuldadeRedacao(){
+            divDificuldadeMaterias.style.display = "none";
+            divFacilidadeMaterias.style.display = "block";
+            var dificuldadeMateria = "Redação";
+        }
+
+        function dificuldadeGeometria(){
+            divDificuldadeMaterias.style.display = "none";
+            divFacilidadeMaterias.style.display = "block";
+            var dificuldadeMateria = "Geometria";
+        }
+
+        function facilidadeMatematica(){
+            var facilidadeMateria = "Matemática";
+            divFacilidadeMaterias.style.display="none";
+            divFinalizacao.style.display="block";
+        }
+
+        function facilidadePortugues(){
+            var facilidadeMateria = "Português";
+            divFacilidadeMaterias.style.display="none";
+            divFinalizacao.style.display="block";
+        }
+
+        function facilidadeHistoria(){
+            var facilidadeMateria = "História";
+            divFacilidadeMaterias.style.display="none";
+            divFinalizacao.style.display="block";
+        }
+
+        function facilidadeGeografia(){
+            var facilidadeMateria = "Geografia";
+            divFacilidadeMaterias.style.display="none";
+            divFinalizacao.style.display="block";
+        }
+
+        function facilidadeQuimica(){
+            var facilidadeMateria = "Quimica";
+            divFacilidadeMaterias.style.display="none";
+            divFinalizacao.style.display="block";
+        }
+
+        function facilidadeFisica(){
+            var facilidadeMateria = "Física";
+            divFacilidadeMaterias.style.display="none";
+            divFinalizacao.style.display="block";
+        }
+
+        function facilidadeBiologia(){
+            var facilidadeMateria = "Biologia";
+            divFacilidadeMaterias.style.display="none";
+            divFinalizacao.style.display="block";
+        }
+
+        function facilidadeRedacao(){
+            var facilidadeMateria = "Redação";
+            divFacilidadeMaterias.style.display="none";
+            divFinalizacao.style.display="block";
+        }
+
+        function facilidadeGeometria(){
+            var facilidadeMateria = "Geometria";
+            divFacilidadeMaterias.style.display="none";
+            divFinalizacao.style.display="block";
+        }
+
+
+
+    
+    // Gráficos
+
     const ctx1 = document.getElementById('GraficoAreasDeInteresse');
     
     new Chart(ctx1, {
@@ -147,15 +1502,226 @@
             }
         }
     });
-    
-    const ctx2 = document.getElementById('GraficoNecessidadeReforco');
 
-    new Chart(ctx2, {
+
+
+
+    const ctx3 = document.getElementById('GraficoFacilidadeBarra');
+    
+    new Chart(ctx3, {
+        type: 'bar',
+        data: {
+            labels: ['Matemática', 'Português', 'História', 'Geografia', 'Química', 'Física', 'Biologia', 'Redação', 'Geometria'],
+            datasets: [{
+                label: 'Votos totais',  
+                backgroundColor: '#f5cd55',
+                borderColor: '#f5cd55',
+                data: [15, 13, 11, 5, 0, 2, 3, 3, 1],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    
+
+
+
+    const ctx4 = document.getElementById('GraficoDificuldadeBarra');
+    
+    new Chart(ctx4, {
+        type: 'bar',
+        data: {
+            labels: ['Matemática', 'Português', 'História', 'Geografia', 'Química', 'Física', 'Biologia', 'Redação', 'Geometria'],
+            datasets: [{
+                label: 'Votos totais',  
+                backgroundColor: '#f5cd55',
+                borderColor: '#f5cd55',
+                data: [10, 6, 0, 3, 12, 7, 4, 9, 2],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+
+
+
+    const ctx5 = document.getElementById('GraficoCienciaHumanas');
+    
+    new Chart(ctx5, {
+        type: 'bar',
+        data: {
+            labels: ['Filosofia', 'Sociologia', 'Comunicação', 'História', 'Ciência Politica', 'Administração'],
+            datasets: [{
+                label: 'Votos totais',  
+                backgroundColor: '#f5cd55',
+                borderColor: '#f5cd55',
+                data: [13, 2, 11, 18, 5, 3],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    
+
+
+
+    const ctx6 = document.getElementById('GraficoLinguas');
+    
+    new Chart(ctx6, {
+        type: 'bar',
+        data: {
+            labels: ['Inglês', 'Mandarim', 'Japonês', 'Espanhol', 'Francês', 'Alemãp'],
+            datasets: [{
+                label: 'Votos totais',  
+                backgroundColor: '#f5cd55',
+                borderColor: '#f5cd55',
+                data: [33, 2, 8, 6, 1, 2],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    
+
+
+
+    const ctx7 = document.getElementById('GraficoArtesanato');
+    
+    new Chart(ctx7, {
+        type: 'bar',
+        data: {
+            labels: ['Biscuit', 'Decoupage', 'Patchwork', 'Reciclagem', 'Bordado', 'Fuxico','Velas Artesais', 'Sabonetes Artesanais', 'Trabalho em MDF'],
+            datasets: [{
+                label: 'Votos totais',  
+                backgroundColor: '#f5cd55',
+                borderColor: '#f5cd55',
+                data: [12, 2, 5, 4, 8, 0, 5, 3, 11],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    
+
+
+
+    const ctx8 = document.getElementById('GraficoArtesPerformaticas');
+    
+    new Chart(ctx8, {
+        type: 'bar',
+        data: {
+            labels: ['Dança', 'Música', 'Teatro'],
+            datasets: [{
+                label: 'Votos totais',  
+                backgroundColor: '#f5cd55',
+                borderColor: '#f5cd55',
+                data: [8, 38, 7],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    
+
+
+
+    const ctx9 = document.getElementById('GraficoArtesLiterarias');
+    
+    new Chart(ctx9, {
+        type: 'bar',
+        data: {
+            labels: ['Drama', 'Poesia', 'Prosa'],
+            datasets: [{
+                label: 'Votos totais',  
+                backgroundColor: '#f5cd55',
+                borderColor: '#f5cd55',
+                data: [29, 12, 11],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    
+
+
+
+    const ctx10 = document.getElementById('GraficoArtesVisuais');
+    
+    new Chart(ctx10, {
+        type: 'bar',
+        data: {
+            labels: ['Desenho', 'Pintura', 'Cinema', 'Cerâmica', 'Escultura', 'Fotografia'],
+            datasets: [{
+                label: 'Votos totais',  
+                backgroundColor: '#f5cd55',
+                borderColor: '#f5cd55',
+                data: [9, 5, 32, 0, 1, 6],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    
+
+
+
+    const ctx = document.getElementById('GraficoNecessidadeReforco');
+
+    new Chart(ctx, {
         type: 'pie',
         data: {
         labels: ['Não necessita', 'Necessita'],
         datasets: [{
-            label: 'Areas de Interesse',
+            label: 'Votos totais',
             data: [28, 24],
             borderWidth: 0
         }]
@@ -168,5 +1734,7 @@
         }
         }
     });
+
+
 
 </script>
