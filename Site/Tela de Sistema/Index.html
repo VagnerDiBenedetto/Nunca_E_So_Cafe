@@ -381,6 +381,14 @@
                                 Muito Obrigado!!!
                             </div>
                             <br>
+                            <div class="fileiraPesquisa">
+                                <div>
+                                    <span>Essa é a x vez que vc respodeu ao questionário.</span>
+                                </div>
+                                <div>
+                                    <button onclick="reiniciarPesquisa()">Refazer a Pesquisa</button>
+                                </div>
+                            </div>
                             <br>
                             <div class="fileiraPesquisa">
                                 <br>
@@ -1474,6 +1482,13 @@
             divFacilidadeMaterias.style.display="none";
             divFinalizacao.style.display="block";
         }
+        
+        function reiniciarPesquisa(){
+            divFinalizacao.style.display="none";
+            divInteresse.style.display="block";
+        }
+
+
 
 
 

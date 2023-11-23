@@ -173,3 +173,9 @@ td, th{
     font-size: 25px;
 }
 
+.fileiraPesquisa span{
+    color: #f5cd55;
+    width: 300px;
+    text-align: center;
+}
+
