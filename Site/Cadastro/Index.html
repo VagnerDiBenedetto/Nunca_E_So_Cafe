@@ -45,34 +45,34 @@
                     <div>
                         <span>
                             E-mail:<br>
-                            <input onkeyUp="validacaoDadosPessoais()" type="text" id="inputEmail"><br>
+                            <input oninput="validacaoDadosPessoais()" type="text" id="inputEmail"><br>
                         </span>
                         <br>
                         <span>
                             Senha:<br>
-                            <input onkeyup="validacaoDadosPessoais()" type="text" id="inputSenha"><br>
+                            <input oninput="validacaoDadosPessoais()" type="text" id="inputSenha"><br>
                         </span>
                         <br>
                         <span>
                             Confirmação de Senha:<br>
-                            <input onkeyup="validacaoDadosPessoais()" type="text" id="inputConfirmaSenha"><br>
+                            <input oninput="validacaoDadosPessoais()" type="text" id="inputConfirmaSenha"><br>
                         </span>
                         <br>
                     </div>
                     <div>
                         <span>
                             Nome:<br>
-                            <input onkeyup="validacaoDadosPessoais()" type="text" id="inputNome"><br>
+                            <input oninput="validacaoDadosPessoais()" type="text" id="inputNome"><br>
                         </span>
                         <br>
                         <span>
                             Data de Nascimento:<br>
-                            <input type="text" id="inputData_de_Nascimento"><br>
+                            <input oninput="validacaoDadosPessoais()" type="text" id="inputData_de_Nascimento"><br>
                         </span>
                         <br>
                         <span>
                             Numero de telefone:<br>
-                            <input type="text" id="inputNumero_de_Telefone"><br>
+                            <input oninput="validacaoDadosPessoais()" type="text" id="inputNumero_de_Telefone"><br>
                         </span>
                         <br>
                     </div>
@@ -94,24 +94,24 @@
                     <div>
                         <span>
                             Cep:<br>
-                            <input onkeyup="validacao()" type="text" id="inputCep"><br>
+                            <input onkeyup="validacaoEndereco()" type="text" id="inputCep"><br>
                         </span>
                         <br>
                         <span>
                             Estado:<br>
-                            <input onkeyup="validacao()" type="text" id="inputEstado"><br>
+                            <input onkeyup="validacaoEndereco()" type="text" id="inputEstado"><br>
                         </span>
                         <br>
                         <span>
                             Cidade:<br>
-                            <input onkeyup="validacao()" type="text" id="inputCidade"><br>
+                            <input onkeyup="validacaoEndereco()" type="text" id="inputCidade"><br>
                         </span>
                         <br>
                     </div>
                     <div>
                         <span>
                             Rua:<br>
-                            <input onkeyup="validacao()" type="text" id="inputRua"><br>
+                            <input onkeyup="validacaoEndereco()" type="text" id="inputRua"><br>
                         </span>
                         <br>
                         <span>
@@ -126,6 +126,9 @@
                         <br>
                     </div>
                 </div>  
+                <br>
+                <br>
+                <div id="divValidacaoEndereco"></div> 
                 <br>
                 <br>
                 <br>
@@ -257,8 +260,6 @@
 
         if (email.indexOf("@") < 0){
             textoValidacao += `<span style="color: red";>* O E-mail deve conter um @.</span><br>`;
-        }else{
-            textoValidacao += `<span style="color: #f5cd55";>* O E-mail está correto.</span><br>`;
         }
 
         if(tamanhoSenha < 8){
@@ -269,16 +270,34 @@
             textoValidacao += `<span style="color: red";>* A Senha deve conter ao menos 1 caracter especial.</span><br>`;
         }else if (validacaoPeloMenosUmNumero == false){
             textoValidacao += `<span style="color: red";>* A Senha deve conter ao menos 1 numero.</span><br>`;
-        }else{
-            textoValidacao += `<span style="color: #f5cd55";>* A senha está correta.</span><br>`;
         }
 
         if (confirmaSenha != senha){
             textoValidacao += `<span style="color: red";>* As Senhas devem ser iguais.</span><br>`;
-        }else{
+        }
+
+        for (var i = 0; i < numeroTelefone.length; i++){
+            if (numeroTelefone[i] != 0 && numeroTelefone[i] != 1 && numeroTelefone[i] != 2 && numeroTelefone[i] != 3 && numeroTelefone[i] != 4 && numeroTelefone[i] != 5 && numeroTelefone[i] != 6 && numeroTelefone[i] != 7 && numeroTelefone[i] != 8 && numeroTelefone[i] != 9){
+                textoValidacao += `<span style="color: red";>* O Telefone deve conter apenas numeros.</span><br>`;
+                break;
+            }
         }
 
         divValidacaoDadosPessoais.innerHTML = textoValidacao;
+    }
+
+    function validacaoEndereco(){
+        var cep = inputCep.value;
+        var textoValidacao;
+
+        for (var i = 0; i < cep.length; i++){
+            if (cep[i] != 0 && cep[i] != 1 && cep[i] != 2 && cep[i] != 3 && cep[i] != 4 && cep[i] != 5 && cep[i] != 6 && cep[i] != 7 && cep[i] != 8 && cep[i] != 9){
+                textoValidacao += `<span style="color: red";>* O CEP deve conter apenas numeros.</span><br>`;
+                break;
+            }
+        }
+
+        divValidacaoEndereco.innerHTML = textoValidacao;
     }
 
     
