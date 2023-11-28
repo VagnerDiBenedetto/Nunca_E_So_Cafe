@@ -1,3 +1,5 @@
+drop database cafeeconhecimento;
+
 create database cafeEconhecimento;
 
 use cafeEconhecimento;
@@ -37,7 +39,7 @@ insert into endereco values
 	(null,'08664220','São Paulo','Suzano','Rua João Renzi','70','Casa');
 
 insert into usuario values
-	(null,'Vagner José Di Benedetto Villela de Andrade','1999-03-30','11976295687','vagner.benedetto99@gmail.com','Vagner123!',1);
+	(null,'Vagner José Di Benedetto Villela de Andrade','1999-03-30','11976295687','vagner.benedetto99@gmail.com','Vagner123!');
     
 insert into pesquisa values
 	(1,null,'Artesanato','Trabalho em MDF','Sim','Português','História'),
@@ -98,4 +100,184 @@ select * from usuario
     on idUsuario = idEndereco;
 select * from endereco;
 select * from pesquisa;
--- drop database cafeeconhecimento;
+
+select count(fkUsuario) from pesquisa
+	where fkUsuario = 1;
+
+select count(areaInteresse) from pesquisa
+	where areaInteresse = "Ciências Humanas";
+    
+select count(areaInteresse) from pesquisa
+	where areaInteresse = "Linguas";
+
+select count(areaInteresse) from pesquisa
+	where areaInteresse = "Artesanato";
+    
+select count(areaInteresse) from pesquisa
+	where areaInteresse = "Artes Performáticas";
+    
+select count(areaInteresse) from pesquisa
+	where areaInteresse = "Artes Literárias";
+    
+select count(areaInteresse) from pesquisa
+	where areaInteresse = "Artes Visuais";
+    
+select count(interesse) from pesquisa
+	where interesse = "Filosofia";
+    
+select count(interesse) from pesquisa
+	where interesse = "Sociologia";
+    
+select count(interesse) from pesquisa
+	where interesse = "Comunicação";
+    
+select count(interesse) from pesquisa
+	where interesse = "História";
+    
+select count(interesse) from pesquisa
+	where interesse = "Ciencia Politica";
+    
+select count(interesse) from pesquisa
+	where interesse = "Administração";
+    
+select count(interesse) from pesquisa
+	where interesse = "Inglês";
+    
+select count(interesse) from pesquisa
+	where interesse = "Mandarim";
+    
+select count(interesse) from pesquisa
+	where interesse = "Japonês";
+    
+select count(interesse) from pesquisa
+	where interesse = "Espanhol";
+    
+select count(interesse) from pesquisa
+	where interesse = "Francês";
+    
+select count(interesse) from pesquisa
+	where interesse = "Alemão";
+    
+select count(interesse) from pesquisa
+	where interesse = "Biscuit";
+    
+select count(interesse) from pesquisa
+	where interesse = "Decoupage";
+    
+select count(interesse) from pesquisa
+	where interesse = "Patchwork";
+    
+select count(interesse) from pesquisa
+	where interesse = "Reciclagem";
+    
+select count(interesse) from pesquisa
+	where interesse = "Bordado";
+    
+select count(interesse) from pesquisa
+	where interesse = "Fuxico";
+    
+select count(interesse) from pesquisa
+	where interesse = "Velas Artesanais";
+    
+select count(interesse) from pesquisa
+	where interesse = "Sabonetes Artesanais";
+    
+select count(interesse) from pesquisa
+	where interesse = "Trabalho em MDF";
+    
+select count(interesse) from pesquisa
+	where interesse = "Dança";
+    
+select count(interesse) from pesquisa
+	where interesse = "Música";
+    
+select count(interesse) from pesquisa
+	where interesse = "Teatro";
+    
+select count(interesse) from pesquisa
+	where interesse = "Drama";
+    
+select count(interesse) from pesquisa
+	where interesse = "Poesia";
+    
+select count(interesse) from pesquisa
+	where interesse = "Prosa";
+    
+select count(interesse) from pesquisa
+	where interesse = "Desenho";
+    
+select count(interesse) from pesquisa
+	where interesse = "Pintura";
+    
+select count(interesse) from pesquisa
+	where interesse = "Cinema";
+
+select count(interesse) from pesquisa
+	where interesse = "Cerâmica";
+    
+select count(interesse) from pesquisa
+	where interesse = "Escultura";
+    
+select count(interesse) from pesquisa
+	where interesse = "Fotografia";
+    
+select count(necessidadeReforco) from pesquisa
+	where necessidadeReforco = "Sim";
+    
+select count(necessidadeReforco) from pesquisa
+	where necessidadeReforco = "Não";
+    
+select count(materiaDificuldade) from pesquisa
+	where materiaDificuldade = "Matemática";
+    
+select count(materiaDificuldade) from pesquisa
+	where materiaDificuldade = "Português";
+    
+select count(materiaDificuldade) from pesquisa
+	where materiaDificuldade = "História";
+    
+select count(materiaDificuldade) from pesquisa
+	where materiaDificuldade = "Geografia";
+    
+select count(materiaDificuldade) from pesquisa
+	where materiaDificuldade = "Quimica";
+    
+select count(materiaDificuldade) from pesquisa
+	where materiaDificuldade = "Física";
+    
+select count(materiaDificuldade) from pesquisa
+	where materiaDificuldade = "Biologia";
+    
+select count(materiaDificuldade) from pesquisa
+	where materiaDificuldade = "Redação";
+    
+select count(materiaDificuldade) from pesquisa
+	where materiaDificuldade = "Geometria";
+    
+select count(materiaFacilidade) from pesquisa
+	where materiaFacilidade = "Matemática";
+    
+select count(materiaFacilidade) from pesquisa
+	where materiaFacilidade = "Português";
+    
+select count(materiaFacilidade) from pesquisa
+	where materiaFacilidade = "História";
+    
+select count(materiaFacilidade) from pesquisa
+	where materiaFacilidade = "Geografia";
+    
+select count(materiaFacilidade) from pesquisa
+	where materiaFacilidade = "Quimica";
+    
+select count(materiaFacilidade) from pesquisa
+	where materiaFacilidade = "Física";
+    
+select count(materiaFacilidade) from pesquisa
+	where materiaFacilidade = "Biologia";
+    
+select count(materiaFacilidade) from pesquisa
+	where materiaFacilidade = "Redação";
+    
+select count(materiaFacilidade) from pesquisa
+	where materiaFacilidade = "Geometria";
+    
