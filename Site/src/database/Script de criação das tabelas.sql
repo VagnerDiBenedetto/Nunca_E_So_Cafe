@@ -19,8 +19,7 @@ dtNascimento date,
 telefone char(11),
 email varchar(45),
 senha varchar(45),
-fkEndereco int,
-foreign key (fkEndereco) references endereco(idEndereco)
+foreign key (idUsuario) references endereco(idEndereco)
 );
 
 create table pesquisa(
@@ -38,7 +37,7 @@ insert into endereco values
 	(null,'08664220','São Paulo','Suzano','Rua João Renzi','70','Casa');
 
 insert into usuario values
-	(null,'Vagner José Di Benedetto Villela de Andrade','1999-03-30','11976295687','vagner.benedetto.villela@gmail.com','Vagner123!',1);
+	(null,'Vagner José Di Benedetto Villela de Andrade','1999-03-30','11976295687','vagner.benedetto99@gmail.com','Vagner123!',1);
     
 insert into pesquisa values
 	(1,null,'Artesanato','Trabalho em MDF','Sim','Português','História'),
@@ -94,7 +93,9 @@ insert into pesquisa values
 	(1,null,'Artes Literárias','Drama','Sim','Matemática','Português'),
 	(1,null,'Ciências Humanas','História','Não','Matemática','Português');
 
-select * from usuario;
+select * from usuario
+	join endereco
+    on idUsuario = idEndereco;
 select * from endereco;
 select * from pesquisa;
 -- drop database cafeeconhecimento;

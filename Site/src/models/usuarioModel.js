@@ -17,8 +17,8 @@ function cadastrar(cep, estado, cidade, rua, numero, referencia, nome, dtNascime
     //  e na ordem de inserção dos dados.
 
     var instrucaoEndereco = `
-    INSERT INTO endereco (CEP, Estado, cidade, rua, numero, referencia) 
-    VALUES ('${cep}', '${estado}', '${cidade}', '${rua}', '${numero}', '${referencia}');
+        INSERT INTO endereco (CEP, Estado, cidade, rua, numero, referencia) 
+        VALUES ('${cep}', '${estado}', '${cidade}', '${rua}', '${numero}', '${referencia}');
     `;
 
     var instrucaoUsuario = `
@@ -53,7 +53,7 @@ function pesquisa(usuario, areaInteresse, interesse, necessitaReforco, dificulda
 
     var instrucaoPesquisa = `
     INSERT INTO pesquisa (fkUsuario, areaInteresse, interesse, necessidadeReforco, materiaDificuldade, materiaFacilidade) 
-    VALUES ('${usuario}', '${areaInteresse}', '${interesse}', '${necessitaReforco}', '${dificuldadeMateria}', '${facilidadeMateria}');
+    VALUES (${usuario}, '${areaInteresse}', '${interesse}', '${necessitaReforco}', '${dificuldadeMateria}', '${facilidadeMateria}');
     `;
 
     console.log("Executando a instrução SQL de endereço: \n" + instrucaoPesquisa);

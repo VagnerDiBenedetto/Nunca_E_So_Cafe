@@ -99,7 +99,7 @@ function cadastrar(req, res) {
 function pesquisa(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
 
-    var usuario = req.body.usuarioServer;
+    var usuario = req.params.usuario;
     var areaInteresse = req.body.areaInteresseServer;
     var interesse = req.body.interesseServer; 
     var necessitaReforco = req.body.necessitaReforcoServer; 

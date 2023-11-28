@@ -12,7 +12,7 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 })
 
-router.post("/pesquisa", function (req, res) {
+router.post("/pesquisa/:usuario", function (req, res) {
     usuarioController.pesquisa(req, res);
 });
 

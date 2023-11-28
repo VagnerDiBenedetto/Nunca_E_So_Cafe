@@ -18,7 +18,7 @@
         <div class="fundo">
             <div class="sistemaHeader">
                 <div class="usuario">
-                    <span>Nome do Usuário</span>
+                    <div id="div_nomeUsuario"></div>
                 </div>
                 <div class="sair">
                     <a href="../Pagina Inicial/Index.html">Sair</a>
@@ -967,6 +967,9 @@
 <script>
     var contadorCafeConhecimento = 0;
     var contadorUmaBoaLeitura = 0;
+    var nomeUsuario = sessionStorage.NOME_USUARIO;
+
+    div_nomeUsuario.innerHTML = `<span>${nomeUsuario}</span>`
 
     function cafeConhecimento(){
         contadorCafeConhecimento ++;
@@ -1134,12 +1137,11 @@
     var necessitaReforco = "";
     var dificuldadeMateria = "";
     var facilidadeMateria = "";
-    var usuario = sessionStorage.ID_USUARIO;
 
     function cienciasHumanasInteresse(){
             divInteresse.style.display = "none";
             divInteresseHumanas.style.display = "block";
-            areaInteresse = "Cincias Humanas";
+            areaInteresse = "Ciências Humanas";
         }
 
         function artesanatoInteresse(){
@@ -1508,9 +1510,12 @@
             pesquisaBanco();
         }
 
+        
+    var usuario = sessionStorage.ID_USUARIO;
+    
         function pesquisaBanco(){
 
-            fetch("/usuarios/pesquisa", {
+            fetch(`/usuarios/pesquisa/${usuario}`,{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -1518,7 +1523,6 @@
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
-                usuarioServer: usuario,
                 areaInteresseServer: areaInteresse,
                 interesseServer: interesse,
                 necessitaReforcoServer: necessitaReforco,
