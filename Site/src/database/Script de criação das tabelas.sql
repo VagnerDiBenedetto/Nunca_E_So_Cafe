@@ -57,13 +57,13 @@ insert into pesquisa values
 	(1,null,'Artes Literárias','Drama','Sim','Redação','Matemática'),
 	(1,null,'Ciências Humanas','Ciência Politica','Não','Quimica','História'),
 	(1,null,'Ciências Humanas','Filosofia','Não','Quimica','Português'),
-	(1,null,'Artes Literárias','Drama','Não','uimica','Português'),
+	(1,null,'Artes Literárias','Drama','Não','Quimica','Português'),
 	(1,null,'Ciências Humanas','Comunicação','Não','Matemática','Redação'),
 	(1,null,'Artes Performáticas','Dança','Não','Biologia','Matemática'),
 	(1,null,'Ciências Humanas','Ciência Politica','Não','Português','Geografia'),
 	(1,null,'Artes Visuais','Desenho','Não','Física','Geografia'),
 	(1,null,'Artes Visuais','Cinema','Não','Quimica','História'),
-	(1,null,'Ates Literárias','Prosa','Sim','uimica','Português'),
+	(1,null,'Ates Literárias','Prosa','Sim','Quimica','Português'),
 	(1,null,'Artes Visuais','Cinema','Sim','Matemática','Português'),
 	(1,null,'Ciências Humanas','Filosofia','Não','Biologia','Matemática'),
 	(1,null,'Artes Visuais','Cinema','Sim','Quimica','Física'),
@@ -103,181 +103,37 @@ select * from pesquisa;
 
 select count(fkUsuario) from pesquisa
 	where fkUsuario = 1;
+    
+select interesse, count(*) as total from pesquisa
+	where areaInteresse = "Ciências Humanas"
+		 group by interesse;
 
-select count(areaInteresse) from pesquisa
-	where areaInteresse = "Ciências Humanas";
-    
-select count(areaInteresse) from pesquisa
-	where areaInteresse = "Linguas";
+select interesse, count(*) as total from pesquisa
+	where areaInteresse = "Linguas"
+		 group by interesse;
 
-select count(areaInteresse) from pesquisa
-	where areaInteresse = "Artesanato";
-    
-select count(areaInteresse) from pesquisa
-	where areaInteresse = "Artes Performáticas";
-    
-select count(areaInteresse) from pesquisa
-	where areaInteresse = "Artes Literárias";
-    
-select count(areaInteresse) from pesquisa
-	where areaInteresse = "Artes Visuais";
-    
-select count(interesse) from pesquisa
-	where interesse = "Filosofia";
-    
-select count(interesse) from pesquisa
-	where interesse = "Sociologia";
-    
-select count(interesse) from pesquisa
-	where interesse = "Comunicação";
-    
-select count(interesse) from pesquisa
-	where interesse = "História";
-    
-select count(interesse) from pesquisa
-	where interesse = "Ciencia Politica";
-    
-select count(interesse) from pesquisa
-	where interesse = "Administração";
-    
-select count(interesse) from pesquisa
-	where interesse = "Inglês";
-    
-select count(interesse) from pesquisa
-	where interesse = "Mandarim";
-    
-select count(interesse) from pesquisa
-	where interesse = "Japonês";
-    
-select count(interesse) from pesquisa
-	where interesse = "Espanhol";
-    
-select count(interesse) from pesquisa
-	where interesse = "Francês";
-    
-select count(interesse) from pesquisa
-	where interesse = "Alemão";
-    
-select count(interesse) from pesquisa
-	where interesse = "Biscuit";
-    
-select count(interesse) from pesquisa
-	where interesse = "Decoupage";
-    
-select count(interesse) from pesquisa
-	where interesse = "Patchwork";
-    
-select count(interesse) from pesquisa
-	where interesse = "Reciclagem";
-    
-select count(interesse) from pesquisa
-	where interesse = "Bordado";
-    
-select count(interesse) from pesquisa
-	where interesse = "Fuxico";
-    
-select count(interesse) from pesquisa
-	where interesse = "Velas Artesanais";
-    
-select count(interesse) from pesquisa
-	where interesse = "Sabonetes Artesanais";
-    
-select count(interesse) from pesquisa
-	where interesse = "Trabalho em MDF";
-    
-select count(interesse) from pesquisa
-	where interesse = "Dança";
-    
-select count(interesse) from pesquisa
-	where interesse = "Música";
-    
-select count(interesse) from pesquisa
-	where interesse = "Teatro";
-    
-select count(interesse) from pesquisa
-	where interesse = "Drama";
-    
-select count(interesse) from pesquisa
-	where interesse = "Poesia";
-    
-select count(interesse) from pesquisa
-	where interesse = "Prosa";
-    
-select count(interesse) from pesquisa
-	where interesse = "Desenho";
-    
-select count(interesse) from pesquisa
-	where interesse = "Pintura";
-    
-select count(interesse) from pesquisa
-	where interesse = "Cinema";
+select interesse, count(*) as total from pesquisa
+	where areaInteresse = "Artesanato"
+		 group by interesse;
+         
+select interesse, count(*) as total from pesquisa
+	where areaInteresse = "Artes Performáticas"
+		 group by interesse;
+                  
+select interesse, count(*) as total from pesquisa
+	where areaInteresse = "Artes Literárias"
+		 group by interesse;
+         
+select interesse, count(*) as total from pesquisa
+	where areaInteresse = "Artes Visuais"
+		 group by interesse;
 
-select count(interesse) from pesquisa
-	where interesse = "Cerâmica";
-    
-select count(interesse) from pesquisa
-	where interesse = "Escultura";
-    
-select count(interesse) from pesquisa
-	where interesse = "Fotografia";
-    
-select count(necessidadeReforco) from pesquisa
-	where necessidadeReforco = "Sim";
-    
-select count(necessidadeReforco) from pesquisa
-	where necessidadeReforco = "Não";
-    
-select count(materiaDificuldade) from pesquisa
-	where materiaDificuldade = "Matemática";
-    
-select count(materiaDificuldade) from pesquisa
-	where materiaDificuldade = "Português";
-    
-select count(materiaDificuldade) from pesquisa
-	where materiaDificuldade = "História";
-    
-select count(materiaDificuldade) from pesquisa
-	where materiaDificuldade = "Geografia";
-    
-select count(materiaDificuldade) from pesquisa
-	where materiaDificuldade = "Quimica";
-    
-select count(materiaDificuldade) from pesquisa
-	where materiaDificuldade = "Física";
-    
-select count(materiaDificuldade) from pesquisa
-	where materiaDificuldade = "Biologia";
-    
-select count(materiaDificuldade) from pesquisa
-	where materiaDificuldade = "Redação";
-    
-select count(materiaDificuldade) from pesquisa
-	where materiaDificuldade = "Geometria";
-    
-select count(materiaFacilidade) from pesquisa
-	where materiaFacilidade = "Matemática";
-    
-select count(materiaFacilidade) from pesquisa
-	where materiaFacilidade = "Português";
-    
-select count(materiaFacilidade) from pesquisa
-	where materiaFacilidade = "História";
-    
-select count(materiaFacilidade) from pesquisa
-	where materiaFacilidade = "Geografia";
-    
-select count(materiaFacilidade) from pesquisa
-	where materiaFacilidade = "Quimica";
-    
-select count(materiaFacilidade) from pesquisa
-	where materiaFacilidade = "Física";
-    
-select count(materiaFacilidade) from pesquisa
-	where materiaFacilidade = "Biologia";
-    
-select count(materiaFacilidade) from pesquisa
-	where materiaFacilidade = "Redação";
-    
-select count(materiaFacilidade) from pesquisa
-	where materiaFacilidade = "Geometria";
+select areaInteresse, count(*) as total from pesquisa group by areaInteresse;
+
+select necessidadeReforco, count(*) as total from pesquisa group by necessidadeReforco;
+
+select materiaDificuldade, count(*) as total from pesquisa group by materiaDificuldade;
+
+select materiaFacilidade, count(*) as total from pesquisa group by materiaFacilidade;
+
     
