@@ -383,8 +383,8 @@
                             </div>
                             <br>
                             <div class="fileiraPesquisa">
-                                <div>
-                                    <span>Essa é a x vez que vc respodeu ao questionário.</span>
+                                <div id="divTentativas">
+                                    
                                 </div>
                                 <div>
                                     <button onclick="reiniciarPesquisa()">Refazer a Pesquisa</button>
@@ -969,8 +969,10 @@
     var contadorCafeConhecimento = 0;
     var contadorUmaBoaLeitura = 0;
     var nomeUsuario = sessionStorage.NOME_USUARIO;
+    var tentativa = sessionStorage.TENTATIVA;
 
     div_nomeUsuario.innerHTML = `<span>${nomeUsuario}</span>`
+    divTentativas.innerHTML = `<span>Essa é a ${tentativa} vez que você respondeu ao questionário.</span>`
 
     function cafeConhecimento(){
         contadorCafeConhecimento ++;
@@ -1561,261 +1563,369 @@
     
     // Gráficos
 
-    const ctx1 = document.getElementById('GraficoAreasDeInteresse');
+    fetch(`/medidas/pesquisa`)
+        .then(resposta => resposta.json()
+            .then(dados => {
+                var area_interesse = dados.map(dado => dado.areaInteresse) 
+                var total_area_interesse = dados.map(dado => dado.totalAreaInteresse) 
+
+                const ctx1 = document.getElementById('GraficoAreasDeInteresse');
+                
+                new Chart(ctx1, {
+                    type: 'bar',
+                    data: {
+                        labels: area_interesse,
+                        datasets: [{
+                            label: 'Areas de Interesse',  
+                            backgroundColor: '#f5cd55',
+                            borderColor: '#f5cd55',
+                            data: total_area_interesse,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            })
+
+        )
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+
+    fetch(`/medidas/cienciasHumanas`)
+        .then(resposta => resposta.json()
+            .then(dados => {
+                var interesse_ciencias_humanas = dados.map(dado => dado.interesse) 
+                var total_ciencias_humanas = dados.map(dado => dado.totalCienciasHumanas) 
+
+                const ctx5 = document.getElementById('GraficoCienciaHumanas');
     
-    new Chart(ctx1, {
-        type: 'bar',
-        data: {
-            labels: ['Ciências Humanas', 'Línguas', 'Artesanato', 'Artes Performáticas', 'Artes Literarias', 'Artes Visuais'],
-            datasets: [{
-                label: 'Areas de Interesse',  
-                backgroundColor: '#f5cd55',
-                borderColor: '#f5cd55',
-                data: [16, 4, 2, 9, 6, 15],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+                new Chart(ctx5, {
+                    type: 'bar',
+                    data: {
+                        labels: interesse_ciencias_humanas,
+                        datasets: [{
+                            label: 'Votos totais',  
+                            backgroundColor: '#f5cd55',
+                            borderColor: '#f5cd55',
+                            data: total_ciencias_humanas,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
                 }
-            }
-        }
-    });
-
-
-
-
-    const ctx3 = document.getElementById('GraficoFacilidadeBarra');
-    
-    new Chart(ctx3, {
-        type: 'bar',
-        data: {
-            labels: ['Matemática', 'Português', 'História', 'Geografia', 'Química', 'Física', 'Biologia', 'Redação', 'Geometria'],
-            datasets: [{
-                label: 'Votos totais',  
-                backgroundColor: '#f5cd55',
-                borderColor: '#f5cd55',
-                data: [15, 13, 11, 5, 0, 2, 3, 3, 1],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
                 }
+                });
             }
-        }
-    });
+
+        )
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        })
+    );
+
+    fetch(`/medidas/materiasFacilidade`)
+        .then(resposta => resposta.json()
+            .then(dados => {
+                var materias_facilidade = dados.map(dado => dado.materiaFacilidade) 
+                var total_materia_facilidade = dados.map(dado => dado.totalMateriaFacilidade) 
+
+                const ctx3 = document.getElementById('GraficoFacilidadeBarra');
     
-
-
-
-    const ctx4 = document.getElementById('GraficoDificuldadeBarra');
-    
-    new Chart(ctx4, {
-        type: 'bar',
-        data: {
-            labels: ['Matemática', 'Português', 'História', 'Geografia', 'Química', 'Física', 'Biologia', 'Redação', 'Geometria'],
-            datasets: [{
-                label: 'Votos totais',  
-                backgroundColor: '#f5cd55',
-                borderColor: '#f5cd55',
-                data: [10, 6, 0, 3, 12, 7, 4, 9, 2],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+                new Chart(ctx3, {
+                    type: 'bar',
+                    data: {
+                        labels: materias_facilidade,
+                        datasets: [{
+                            label: 'Votos totais',  
+                            backgroundColor: '#f5cd55',
+                            borderColor: '#f5cd55',
+                            data: total_materia_facilidade,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
             }
-        }
-    });
 
+        )
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        })
+    );
 
+    fetch(`/medidas/materiasDificuldade`)
+        .then(resposta => resposta.json()
+            .then(dados => {
+                var materias_dificuldade = dados.map(dado => dado.materiaDificuldade) 
+                var total_materia_dificuldade = dados.map(dado => dado.totalMateriaDificuldade) 
 
-
-    const ctx5 = document.getElementById('GraficoCienciaHumanas');
-    
-    new Chart(ctx5, {
-        type: 'bar',
-        data: {
-            labels: ['Filosofia', 'Sociologia', 'Comunicação', 'História', 'Ciência Politica', 'Administração'],
-            datasets: [{
-                label: 'Votos totais',  
-                backgroundColor: '#f5cd55',
-                borderColor: '#f5cd55',
-                data: [13, 2, 11, 18, 5, 3],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+                const ctx4 = document.getElementById('GraficoDificuldadeBarra');
+                
+                new Chart(ctx4, {
+                    type: 'bar',
+                    data: {
+                        labels: materias_dificuldade,
+                        datasets: [{
+                            label: 'Votos totais',  
+                            backgroundColor: '#f5cd55',
+                            borderColor: '#f5cd55',
+                            data: total_materia_dificuldade,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+                
             }
-        }
-    });
-    
 
+        )
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        })
+    );
 
+    fetch(`/medidas/interesseLinguas`)
+        .then(resposta => resposta.json()
+            .then(dados => {
+                var interesse_linguas = dados.map(dado => dado.interesse) 
+                var total_linguas = dados.map(dado => dado.totalLinguas) 
 
-    const ctx6 = document.getElementById('GraficoLinguas');
-    
-    new Chart(ctx6, {
-        type: 'bar',
-        data: {
-            labels: ['Inglês', 'Mandarim', 'Japonês', 'Espanhol', 'Francês', 'Alemãp'],
-            datasets: [{
-                label: 'Votos totais',  
-                backgroundColor: '#f5cd55',
-                borderColor: '#f5cd55',
-                data: [33, 2, 8, 6, 1, 2],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+                const ctx6 = document.getElementById('GraficoLinguas');
+                
+                new Chart(ctx6, {
+                    type: 'bar',
+                    data: {
+                        labels: interesse_linguas,
+                        datasets: [{
+                            label: 'Votos totais',  
+                            backgroundColor: '#f5cd55',
+                            borderColor: '#f5cd55',
+                            data: total_linguas,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+                
             }
-        }
-    });
-    
 
+        )
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        })
+    );
 
+    fetch(`/medidas/interesseArtesanato`)
+        .then(resposta => resposta.json()
+            .then(dados => {
+                var interesse_artesanato = dados.map(dado => dado.interesse) 
+                var total_artesanato = dados.map(dado => dado.totalArtesanato) 
 
-    const ctx7 = document.getElementById('GraficoArtesanato');
-    
-    new Chart(ctx7, {
-        type: 'bar',
-        data: {
-            labels: ['Biscuit', 'Decoupage', 'Patchwork', 'Reciclagem', 'Bordado', 'Fuxico','Velas Artesais', 'Sabonetes Artesanais', 'Trabalho em MDF'],
-            datasets: [{
-                label: 'Votos totais',  
-                backgroundColor: '#f5cd55',
-                borderColor: '#f5cd55',
-                data: [12, 2, 5, 4, 8, 0, 5, 3, 11],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+                const ctx7 = document.getElementById('GraficoArtesanato');
+                
+                new Chart(ctx7, {
+                    type: 'bar',
+                    data: {
+                        labels: interesse_artesanato,
+                        datasets: [{
+                            label: 'Votos totais',  
+                            backgroundColor: '#f5cd55',
+                            borderColor: '#f5cd55',
+                            data: total_artesanato,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+                
             }
-        }
-    });
-    
 
+        )
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        })
+    );
 
+    fetch(`/medidas/interesseArtesPerformaticas`)
+        .then(resposta => resposta.json()
+            .then(dados => {
+                var interesse_artes_performaticas = dados.map(dado => dado.interesse) 
+                var total_artes_performaticas = dados.map(dado => dado.totalArtesPerformaticas) 
 
-    const ctx8 = document.getElementById('GraficoArtesPerformaticas');
-    
-    new Chart(ctx8, {
-        type: 'bar',
-        data: {
-            labels: ['Dança', 'Música', 'Teatro'],
-            datasets: [{
-                label: 'Votos totais',  
-                backgroundColor: '#f5cd55',
-                borderColor: '#f5cd55',
-                data: [8, 38, 7],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+                const ctx8 = document.getElementById('GraficoArtesPerformaticas');
+                
+                new Chart(ctx8, {
+                    type: 'bar',
+                    data: {
+                        labels: interesse_artes_performaticas,
+                        datasets: [{
+                            label: 'Votos totais',  
+                            backgroundColor: '#f5cd55',
+                            borderColor: '#f5cd55',
+                            data: total_artes_performaticas,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+                
             }
-        }
-    });
-    
 
+        )
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        })
+    );
 
+    fetch(`/medidas/interesseArtesLiterarias`)
+        .then(resposta => resposta.json()
+            .then(dados => {
+                var interesse_artes_literarias = dados.map(dado => dado.interesse) 
+                var total_artes_literarias = dados.map(dado => dado.totalArtesLiterarias) 
 
-    const ctx9 = document.getElementById('GraficoArtesLiterarias');
-    
-    new Chart(ctx9, {
-        type: 'bar',
-        data: {
-            labels: ['Drama', 'Poesia', 'Prosa'],
-            datasets: [{
-                label: 'Votos totais',  
-                backgroundColor: '#f5cd55',
-                borderColor: '#f5cd55',
-                data: [29, 12, 11],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+                const ctx9 = document.getElementById('GraficoArtesLiterarias');
+                
+                new Chart(ctx9, {
+                    type: 'bar',
+                    data: {
+                        labels: interesse_artes_literarias,
+                        datasets: [{
+                            label: 'Votos totais',  
+                            backgroundColor: '#f5cd55',
+                            borderColor: '#f5cd55',
+                            data: total_artes_literarias,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+                
             }
-        }
-    });
-    
 
+        )
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        })
+    );
 
+    fetch(`/medidas/interesseArtesVisuais`)
+        .then(resposta => resposta.json()
+            .then(dados => {
+                var interesse_artes_visuais = dados.map(dado => dado.interesse) 
+                var total_artes_visuais = dados.map(dado => dado.totalArtesVisuais) 
 
-    const ctx10 = document.getElementById('GraficoArtesVisuais');
-    
-    new Chart(ctx10, {
-        type: 'bar',
-        data: {
-            labels: ['Desenho', 'Pintura', 'Cinema', 'Cerâmica', 'Escultura', 'Fotografia'],
-            datasets: [{
-                label: 'Votos totais',  
-                backgroundColor: '#f5cd55',
-                borderColor: '#f5cd55',
-                data: [9, 5, 32, 0, 1, 6],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+                const ctx10 = document.getElementById('GraficoArtesVisuais');
+                
+                new Chart(ctx10, {
+                    type: 'bar',
+                    data: {
+                        labels: interesse_artes_visuais,
+                        datasets: [{
+                            label: 'Votos totais',  
+                            backgroundColor: '#f5cd55',
+                            borderColor: '#f5cd55',
+                            data: total_artes_visuais,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+                
             }
-        }
-    });
-    
 
+        )
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        })
+    );
 
+    fetch(`/medidas/necessidadeReforco`)
+        .then(resposta => resposta.json()
+            .then(dados => {
+                var necessidade_reforco = dados.map(dado => dado.necessidadeReforco) 
+                var total_necessidade_reforco = dados.map(dado => dado.totalNecessidadeReforco) 
 
-    const ctx = document.getElementById('GraficoNecessidadeReforco');
-
-    new Chart(ctx, {
-        type: 'pie',
-        data: {
-        labels: ['Não necessita', 'Necessita'],
-        datasets: [{
-            label: 'Votos totais',
-            data: [28, 24],
-            borderWidth: 0
-        }]
-        },
-        options: {
-        scales: {
-            y: {
-            beginAtZero: true
+                const ctx = document.getElementById('GraficoNecessidadeReforco');
+            
+                new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                    labels: necessidade_reforco,
+                    datasets: [{
+                        label: 'Votos totais',
+                        data: total_necessidade_reforco,
+                        borderWidth: 0
+                    }]
+                    },
+                    options: {
+                    scales: {
+                        y: {
+                        beginAtZero: true
+                        }
+                    }
+                    }
+                });
+                
             }
-        }
-        }
-    });
 
-
+        )
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        })
+    );
 
 </script>

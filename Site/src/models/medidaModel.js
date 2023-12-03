@@ -1,59 +1,130 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idAquario, limite_linhas) {
+function buscarAreaInteresse() {
 
-    instrucaoSql = ''
-
-    if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
-                        momento,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico
-                    from medida
-                    where fk_aquario = ${idAquario}
-                    order by id desc limit ${limite_linhas}`;
-    } else {
-        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
-        return
-    }
+    var instrucaoSql = `
+    select areaInteresse, count(*) as totalAreaInteresse
+        from pesquisa group by areaInteresse;
+    `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idAquario) {
+function buscarAreaInteresseCienciasHumanas() {
 
-    instrucaoSql = ''
-
-    if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select top 1
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,  
-                        CONVERT(varchar, momento, 108) as momento_grafico, 
-                        fk_aquario 
-                        from medida where fk_aquario = ${idAquario} 
-                    order by id desc`;
-
-    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
-                        fk_aquario 
-                        from medida where fk_aquario = ${idAquario} 
-                    order by id desc limit 1`;
-    } else {
-        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
-        return
-    }
+    var instrucaoSql = `
+    select interesse, count(*) as totalCienciasHumanas from pesquisa
+	    where areaInteresse = "Ciências Humanas"
+		    group by interesse;
+    `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
+function buscarMateriasFacilidade() {
+
+    var instrucaoSql = `
+    select materiaFacilidade, count(*) as totalMateriaFacilidade 
+        from pesquisa group by materiaFacilidade;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarMateriasDificuldade() {
+
+    var instrucaoSql = `
+    select materiaDificuldade, count(*) as totalMateriaDificuldade 
+        from pesquisa group by materiaDificuldade;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarInteresseLinguas() {
+
+    var instrucaoSql = `
+    select interesse, count(*) as totalLinguas
+    from pesquisa where areaInteresse = "Linguas" 
+    group by interesse;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarInteresseArtesanato() {
+
+    var instrucaoSql = `
+    select interesse, count(*) as totalArtesanato
+    from pesquisa where areaInteresse = "Artesanato" 
+    group by interesse;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarInteresseArtesPerformaticas() {
+
+    var instrucaoSql = `
+    select interesse, count(*) as totalArtesPerformaticas
+    from pesquisa where areaInteresse = "Artes Performáticas" 
+    group by interesse;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarInteresseArtesLiterarias() {
+
+    var instrucaoSql = `
+    select interesse, count(*) as totalArtesLiterarias
+    from pesquisa where areaInteresse = "Artes Literárias" 
+    group by interesse;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarInteresseArtesVisuais() {
+
+    var instrucaoSql = `
+    select interesse, count(*) as totalArtesVisuais
+    from pesquisa where areaInteresse = "Artes Visuais" 
+    group by interesse;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarNecessidadeReforco() {
+
+    var instrucaoSql = `
+    select necessidadeReforco, count(*) as totalNecessidadeReforco 
+    from pesquisa group by necessidadeReforco;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 module.exports = {
-    buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarAreaInteresse,
+    buscarAreaInteresseCienciasHumanas,
+    buscarMateriasFacilidade,
+    buscarMateriasDificuldade,
+    buscarInteresseLinguas,
+    buscarInteresseArtesanato,
+    buscarInteresseArtesPerformaticas,
+    buscarInteresseArtesLiterarias,
+    buscarInteresseArtesVisuais,
+    buscarNecessidadeReforco
 }

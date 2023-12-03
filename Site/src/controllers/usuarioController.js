@@ -2,6 +2,7 @@ var usuarioModel = require("../models/usuarioModel");
 var aquarioModel = require("../models/aquarioModel");
 
 function autenticar(req, res) {
+    var idUsuario = req.body.idUsuarioServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
@@ -19,7 +20,9 @@ function autenticar(req, res) {
 
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
+                        
                                     res.json(resultadoAutenticar[0]);
+
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
@@ -51,6 +54,7 @@ function cadastrar(req, res) {
     var telefone = req.body.telefoneServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    // var tentativas = req.body.tentativasServer;
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -78,7 +82,7 @@ function cadastrar(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(cep, estado, cidade, rua, numero, referencia, nome, dtNascimento, telefone, email, senha)
+        usuarioModel.cadastrar(cep, estado, cidade, rua, numero, referencia, nome, dtNascimento, telefone, email, senha, tentativas)
             .then(
                 function (resultado) {
                     res.json(resultado);
