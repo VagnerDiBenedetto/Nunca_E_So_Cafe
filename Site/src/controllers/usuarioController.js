@@ -2,7 +2,6 @@ var usuarioModel = require("../models/usuarioModel");
 var aquarioModel = require("../models/aquarioModel");
 
 function autenticar(req, res) {
-    var idUsuario = req.body.idUsuarioServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
@@ -54,7 +53,7 @@ function cadastrar(req, res) {
     var telefone = req.body.telefoneServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    // var tentativas = req.body.tentativasServer;
+    var tentativas = req.body.tentativasServer;
 
     // Faça as validações dos valores
     if (nome == undefined) {

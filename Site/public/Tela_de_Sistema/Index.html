@@ -969,10 +969,12 @@
     var contadorCafeConhecimento = 0;
     var contadorUmaBoaLeitura = 0;
     var nomeUsuario = sessionStorage.NOME_USUARIO;
+    var idUsuario = sessionStorage.ID_USUARIO;
     var tentativa = sessionStorage.TENTATIVA;
 
-    div_nomeUsuario.innerHTML = `<span>${nomeUsuario}</span>`
     divTentativas.innerHTML = `<span>Essa é a ${tentativa} vez que você respondeu ao questionário.</span>`
+  
+    div_nomeUsuario.innerHTML = `<span>${nomeUsuario}</span>`
 
     // Menu Lateral
     function cafeConhecimento(){

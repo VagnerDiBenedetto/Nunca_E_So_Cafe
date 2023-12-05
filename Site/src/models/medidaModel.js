@@ -116,6 +116,19 @@ function buscarNecessidadeReforco() {
     return database.executar(instrucaoSql);
 }
 
+function buscarTentativas() {
+    
+    var idUsuario = req.body.idUsuarioServer;
+
+    var instrucaoSql = `
+    select count(*) as totalPesquisas 
+    from pesquisa where id = ${idUsuario};
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     buscarAreaInteresse,
     buscarAreaInteresseCienciasHumanas,
@@ -126,5 +139,6 @@ module.exports = {
     buscarInteresseArtesPerformaticas,
     buscarInteresseArtesLiterarias,
     buscarInteresseArtesVisuais,
-    buscarNecessidadeReforco
+    buscarNecessidadeReforco,
+    buscarTentativas
 }

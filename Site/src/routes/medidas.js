@@ -7,6 +7,10 @@ router.get("/pesquisa", function (req, res) {
     medidaController.buscarAreaInteresse(req, res);
 });
 
+router.get("/tentativas", function (req, res) {
+    medidaController.buscarTentativas(req, res);
+});
+
 router.get("/cienciasHumanas", function (req, res) {
     medidaController.buscarAreaInteresseCienciasHumanas(req, res);
 });
