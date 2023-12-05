@@ -462,7 +462,7 @@
                                     <div>
                                         <span>Classificação Áreas de Interesse</span>
                                     </div>
-                                    <div>
+                                    <div id="tabelaAreasInteresse">
                                         <table>
                                             <tbody>
                                                 <tr>
@@ -497,7 +497,7 @@
                                     <div>
                                         <span>Votos Necessidade de Reforço</span>
                                     </div>
-                                    <div>
+                                    <div id="tabelaNecessidadeReforco">
                                         <table>
                                             <tbody>
                                                 <tr>
@@ -544,7 +544,7 @@
                                     <span>Matérias com Dificuldade</span>
                                 </div>
                                 <div>
-                                    <div>
+                                    <div id="tabelaMateriaDificuldade">
                                         <table>
                                             <tbody>
                                                 <tr>
@@ -610,7 +610,7 @@
                                     <span>Matérias com Facilidade</span>
                                 </div>
                                 <div>
-                                    <div>
+                                    <div id="tabelaMateriaFacilidade">
                                         <table>
                                             <tbody>
                                                 <tr>
@@ -673,7 +673,7 @@
                         <div class="Dados">
                             <div class="coluna">
                                 <div>
-                                    <div>
+                                    <div id="tabelaCienciasHumanas">
                                         <table>
                                             <tbody>
                                                 <tr>
@@ -724,7 +724,7 @@
                         <div class="Dados">
                             <div class="coluna">
                                 <div>
-                                    <div>
+                                    <div id="tabelaInteresseLinguas">
                                         <table>
                                             <tbody>
                                                 <tr>
@@ -775,7 +775,7 @@
                         <div class="Dados">
                             <div class="coluna">
                                 <div>
-                                    <div>
+                                    <div id="tabelaInteresseArtesanato">
                                         <table>
                                             <tbody>
                                                 <tr>
@@ -838,7 +838,7 @@
                         <div class="Dados">
                             <div class="coluna">
                                 <div>
-                                    <div>
+                                    <div id="tabelaInteresseArtesPerformaticas">
                                         <table>
                                             <tbody>
                                                 <tr>
@@ -877,7 +877,7 @@
                         <div class="Dados">
                             <div class="coluna">
                                 <div>
-                                    <div>
+                                    <div id="tabelaInteresseArtesLiterarias">
                                         <table>
                                             <tbody>
                                                 <tr>
@@ -916,7 +916,7 @@
                         <div class="Dados">
                             <div class="coluna">
                                 <div>
-                                    <div>
+                                    <div id="tabelaInteresseArtesVisuais">
                                         <table>
                                             <tbody>
                                                 <tr>
@@ -974,6 +974,7 @@
     div_nomeUsuario.innerHTML = `<span>${nomeUsuario}</span>`
     divTentativas.innerHTML = `<span>Essa é a ${tentativa} vez que você respondeu ao questionário.</span>`
 
+    // Menu Lateral
     function cafeConhecimento(){
         contadorCafeConhecimento ++;
 
@@ -993,6 +994,8 @@
         divUmaBoaLeitura.style.display = "block"
         }
     }
+
+    // Tela Inicial 
 
     function dodosGerais(){
         divInicial.style.display = "none";
@@ -1134,6 +1137,8 @@
         divArtesLiterarias.style.display = "none";
         divArtesVisuais.style.display = "none";
     }
+
+    // Funções da Pesquisa 
 
     var areaInteresse = "";
     var interesse = "";
@@ -1513,7 +1518,8 @@
             pesquisaBanco();
         }
 
-        
+        // Enviar dados da pesquisa para o banco 
+
     var usuario = sessionStorage.ID_USUARIO;
     
         function pesquisaBanco(){
@@ -1569,6 +1575,51 @@
                 var area_interesse = dados.map(dado => dado.areaInteresse) 
                 var total_area_interesse = dados.map(dado => dado.totalAreaInteresse) 
 
+                var ranking_area_interesse = [];
+                var ranking_total_area_interesse = [];
+
+                ranking_area_interesse = area_interesse;
+                ranking_total_area_interesse = total_area_interesse;
+
+                var tamanho = ranking_area_interesse.length
+                var auxiliar = 0;
+                var auxiliarB = 0;
+                var tabela = "";
+                var contadorRanking = 0;
+
+                for(var i = 0; i < tamanho; i++){
+                    for (var j = i +1; j < tamanho; j++){
+                        if(ranking_total_area_interesse[i] > ranking_total_area_interesse[j]){
+                            auxiliar = ranking_area_interesse[j];
+                            ranking_area_interesse[j] = ranking_area_interesse[i];
+                            ranking_area_interesse[i] = auxiliar;
+
+                            auxiliarB = ranking_total_area_interesse[j];
+                            ranking_total_area_interesse[j] = ranking_total_area_interesse[i];
+                            ranking_total_area_interesse[i] = auxiliarB;
+                        }
+                    }
+                }
+
+                for(var i = tamanho; i > 0; i--){
+                    contadorRanking++
+
+                    tabela += `
+                    <tr>
+                        <th>${contadorRanking}</th>
+                        <th>${ranking_area_interesse[i-1]}</th>
+                    </tr>
+                    `
+                }
+
+                tabelaAreasInteresse.innerHTML =`
+                <table>
+                    <tbody>
+                        ${tabela}
+                    </tbody>
+                </table>
+                `;
+
                 const ctx1 = document.getElementById('GraficoAreasDeInteresse');
                 
                 new Chart(ctx1, {
@@ -1605,6 +1656,52 @@
                 var interesse_ciencias_humanas = dados.map(dado => dado.interesse) 
                 var total_ciencias_humanas = dados.map(dado => dado.totalCienciasHumanas) 
 
+                
+                var ranking_interesse_ciencias_humanas = [];
+                var ranking_total_interesse_ciencias_humanas = [];
+
+                ranking_interesse_ciencias_humanas = interesse_ciencias_humanas;
+                ranking_total_interesse_ciencias_humanas = total_ciencias_humanas;
+
+                var tamanho = ranking_interesse_ciencias_humanas.length
+                var auxiliar = 0;
+                var auxiliarB = 0;
+                var tabela = "";
+                var contadorRanking = 0;
+
+                for(var i = 0; i < tamanho; i++){
+                    for (var j = i +1; j < tamanho; j++){
+                        if(ranking_total_interesse_ciencias_humanas[i] > ranking_total_interesse_ciencias_humanas[j]){
+                            auxiliar = ranking_interesse_ciencias_humanas[j];
+                            ranking_interesse_ciencias_humanas[j] = ranking_interesse_ciencias_humanas[i];
+                            ranking_interesse_ciencias_humanas[i] = auxiliar;
+
+                            auxiliarB = ranking_total_interesse_ciencias_humanas[j];
+                            ranking_total_interesse_ciencias_humanas[j] = ranking_total_interesse_ciencias_humanas[i];
+                            ranking_total_interesse_ciencias_humanas[i] = auxiliarB;
+                        }
+                    }
+                }
+
+                for(var i = tamanho - 1; i >= 0; i--){
+                    contadorRanking++
+
+                    tabela += `
+                    <tr>
+                        <th>${contadorRanking}</th>
+                        <th>${ranking_interesse_ciencias_humanas[i]}</th>
+                    </tr>
+                    `
+                }
+
+                tabelaCienciasHumanas.innerHTML =`
+                <table>
+                    <tbody>
+                        ${tabela}
+                    </tbody>
+                </table>
+                `;
+
                 const ctx5 = document.getElementById('GraficoCienciaHumanas');
     
                 new Chart(ctx5, {
@@ -1640,6 +1737,51 @@
             .then(dados => {
                 var materias_facilidade = dados.map(dado => dado.materiaFacilidade) 
                 var total_materia_facilidade = dados.map(dado => dado.totalMateriaFacilidade) 
+                
+                var ranking_materias_facilidade = [];
+                var ranking_total_materias_facilidade = [];
+
+                ranking_materias_facilidade = materias_facilidade;
+                ranking_total_materias_facilidade = total_materia_facilidade;
+
+                var tamanho = ranking_materias_facilidade.length
+                var auxiliar = 0;
+                var auxiliarB = 0;
+                var tabela = "";
+                var contadorRanking = 0;
+
+                for(var i = 0; i < tamanho; i++){
+                    for (var j = i +1; j < tamanho; j++){
+                        if(ranking_total_materias_facilidade[i] > ranking_total_materias_facilidade[j]){
+                            auxiliar = ranking_materias_facilidade[j];
+                            ranking_materias_facilidade[j] = ranking_materias_facilidade[i];
+                            ranking_materias_facilidade[i] = auxiliar;
+
+                            auxiliarB = ranking_total_materias_facilidade[j];
+                            ranking_total_materias_facilidade[j] = ranking_total_materias_facilidade[i];
+                            ranking_total_materias_facilidade[i] = auxiliarB;
+                        }
+                    }
+                }
+
+                for(var i = tamanho - 1; i >= 0; i--){
+                    contadorRanking++
+
+                    tabela += `
+                    <tr>
+                        <th>${contadorRanking}</th>
+                        <th>${ranking_materias_facilidade[i]}</th>
+                    </tr>
+                    `
+                }
+
+                tabelaMateriaFacilidade.innerHTML =`
+                <table>
+                    <tbody>
+                        ${tabela}
+                    </tbody>
+                </table>
+                `;
 
                 const ctx3 = document.getElementById('GraficoFacilidadeBarra');
     
@@ -1677,6 +1819,51 @@
                 var materias_dificuldade = dados.map(dado => dado.materiaDificuldade) 
                 var total_materia_dificuldade = dados.map(dado => dado.totalMateriaDificuldade) 
 
+                var ranking_materias_dificuldade = [];
+                var ranking_total_materias_dificuldade = [];
+
+                ranking_materias_dificuldade = materias_dificuldade;
+                ranking_total_materias_dificuldade = total_materia_dificuldade;
+
+                var tamanho = ranking_materias_dificuldade.length
+                var auxiliar = 0;
+                var auxiliarB = 0;
+                var tabela = "";
+                var contadorRanking = 0;
+
+                for(var i = 0; i < tamanho; i++){
+                    for (var j = i +1; j < tamanho; j++){
+                        if(ranking_total_materias_dificuldade[i] > ranking_total_materias_dificuldade[j]){
+                            auxiliar = ranking_materias_dificuldade[j];
+                            ranking_materias_dificuldade[j] = ranking_materias_dificuldade[i];
+                            ranking_materias_dificuldade[i] = auxiliar;
+
+                            auxiliarB = ranking_total_materias_dificuldade[j];
+                            ranking_total_materias_dificuldade[j] = ranking_total_materias_dificuldade[i];
+                            ranking_total_materias_dificuldade[i] = auxiliarB;
+                        }
+                    }
+                }
+
+                for(var i = tamanho - 1; i >= 0; i--){
+                    contadorRanking++
+
+                    tabela += `
+                    <tr>
+                        <th>${contadorRanking}</th>
+                        <th>${ranking_materias_dificuldade[i]}</th>
+                    </tr>
+                    `
+                }
+
+                tabelaMateriaDificuldade.innerHTML =`
+                <table>
+                    <tbody>
+                        ${tabela}
+                    </tbody>
+                </table>
+                `;
+
                 const ctx4 = document.getElementById('GraficoDificuldadeBarra');
                 
                 new Chart(ctx4, {
@@ -1713,6 +1900,51 @@
             .then(dados => {
                 var interesse_linguas = dados.map(dado => dado.interesse) 
                 var total_linguas = dados.map(dado => dado.totalLinguas) 
+                
+                var ranking_interesse_linguas = [];
+                var ranking_total_interesse_linguas = [];
+
+                ranking_interesse_linguas = interesse_linguas;
+                ranking_total_interesse_linguas = total_linguas;
+
+                var tamanho = ranking_interesse_linguas.length
+                var auxiliar = 0;
+                var auxiliarB = 0;
+                var tabela = "";
+                var contadorRanking = 0;
+
+                for(var i = 0; i < tamanho; i++){
+                    for (var j = i +1; j < tamanho; j++){
+                        if(ranking_total_interesse_linguas[i] > ranking_total_interesse_linguas[j]){
+                            auxiliar = ranking_interesse_linguas[j];
+                            ranking_interesse_linguas[j] = ranking_interesse_linguas[i];
+                            ranking_interesse_linguas[i] = auxiliar;
+
+                            auxiliarB = ranking_total_interesse_linguas[j];
+                            ranking_total_interesse_linguas[j] = ranking_total_interesse_linguas[i];
+                            ranking_total_interesse_linguas[i] = auxiliarB;
+                        }
+                    }
+                }
+
+                for(var i = tamanho - 1; i >= 0; i--){
+                    contadorRanking++
+
+                    tabela += `
+                    <tr>
+                        <th>${contadorRanking}</th>
+                        <th>${ranking_interesse_linguas[i]}</th>
+                    </tr>
+                    `
+                }
+
+                tabelaInteresseLinguas.innerHTML =`
+                <table>
+                    <tbody>
+                        ${tabela}
+                    </tbody>
+                </table>
+                `;
 
                 const ctx6 = document.getElementById('GraficoLinguas');
                 
@@ -1750,6 +1982,51 @@
             .then(dados => {
                 var interesse_artesanato = dados.map(dado => dado.interesse) 
                 var total_artesanato = dados.map(dado => dado.totalArtesanato) 
+                
+                var ranking_interesse_artesanato = [];
+                var ranking_total_interesse_artesanato = [];
+
+                ranking_interesse_artesanato = interesse_artesanato;
+                ranking_total_interesse_artesanato = total_artesanato;
+
+                var tamanho = ranking_interesse_artesanato.length
+                var auxiliar = 0;
+                var auxiliarB = 0;
+                var tabela = "";
+                var contadorRanking = 0;
+
+                for(var i = 0; i < tamanho; i++){
+                    for (var j = i +1; j < tamanho; j++){
+                        if(ranking_total_interesse_artesanato[i] > ranking_total_interesse_artesanato[j]){
+                            auxiliar = ranking_interesse_artesanato[j];
+                            ranking_interesse_artesanato[j] = ranking_interesse_artesanato[i];
+                            ranking_interesse_artesanato[i] = auxiliar;
+
+                            auxiliarB = ranking_total_interesse_artesanato[j];
+                            ranking_total_interesse_artesanato[j] = ranking_total_interesse_artesanato[i];
+                            ranking_total_interesse_artesanato[i] = auxiliarB;
+                        }
+                    }
+                }
+
+                for(var i = tamanho - 1; i >= 0; i--){
+                    contadorRanking++
+
+                    tabela += `
+                    <tr>
+                        <th>${contadorRanking}</th>
+                        <th>${ranking_interesse_artesanato[i]}</th>
+                    </tr>
+                    `
+                }
+
+                tabelaInteresseArtesanato.innerHTML =`
+                <table>
+                    <tbody>
+                        ${tabela}
+                    </tbody>
+                </table>
+                `;
 
                 const ctx7 = document.getElementById('GraficoArtesanato');
                 
@@ -1787,6 +2064,51 @@
             .then(dados => {
                 var interesse_artes_performaticas = dados.map(dado => dado.interesse) 
                 var total_artes_performaticas = dados.map(dado => dado.totalArtesPerformaticas) 
+                
+                var ranking_interesse_artes_performaticas = [];
+                var ranking_total_interesse_artes_performaticas = [];
+
+                ranking_interesse_artes_performaticas = interesse_artes_performaticas;
+                ranking_total_interesse_artes_performaticas = total_artes_performaticas;
+
+                var tamanho = ranking_interesse_artes_performaticas.length
+                var auxiliar = 0;
+                var auxiliarB = 0;
+                var tabela = "";
+                var contadorRanking = 0;
+
+                for(var i = 0; i < tamanho; i++){
+                    for (var j = i +1; j < tamanho; j++){
+                        if(ranking_total_interesse_artes_performaticas[i] > ranking_total_interesse_artes_performaticas[j]){
+                            auxiliar = ranking_interesse_artes_performaticas[j];
+                            ranking_interesse_artes_performaticas[j] = ranking_interesse_artes_performaticas[i];
+                            ranking_interesse_artes_performaticas[i] = auxiliar;
+
+                            auxiliarB = ranking_total_interesse_artes_performaticas[j];
+                            ranking_total_interesse_artes_performaticas[j] = ranking_total_interesse_artes_performaticas[i];
+                            ranking_total_interesse_artes_performaticas[i] = auxiliarB;
+                        }
+                    }
+                }
+
+                for(var i = tamanho - 1; i >= 0; i--){
+                    contadorRanking++
+
+                    tabela += `
+                    <tr>
+                        <th>${contadorRanking}</th>
+                        <th>${ranking_interesse_artes_performaticas[i]}</th>
+                    </tr>
+                    `
+                }
+
+                tabelaInteresseArtesPerformaticas.innerHTML =`
+                <table>
+                    <tbody>
+                        ${tabela}
+                    </tbody>
+                </table>
+                `;
 
                 const ctx8 = document.getElementById('GraficoArtesPerformaticas');
                 
@@ -1824,6 +2146,51 @@
             .then(dados => {
                 var interesse_artes_literarias = dados.map(dado => dado.interesse) 
                 var total_artes_literarias = dados.map(dado => dado.totalArtesLiterarias) 
+                
+                var ranking_interesse_artes_literarias = [];
+                var ranking_total_interesse_artes_literarias = [];
+
+                ranking_interesse_artes_literarias = interesse_artes_literarias;
+                ranking_total_interesse_artes_literarias = total_artes_literarias;
+
+                var tamanho = ranking_interesse_artes_literarias.length
+                var auxiliar = 0;
+                var auxiliarB = 0;
+                var tabela = "";
+                var contadorRanking = 0;
+
+                for(var i = 0; i < tamanho; i++){
+                    for (var j = i +1; j < tamanho; j++){
+                        if(ranking_total_interesse_artes_literarias[i] > ranking_total_interesse_artes_literarias[j]){
+                            auxiliar = ranking_interesse_artes_literarias[j];
+                            ranking_interesse_artes_literarias[j] = ranking_interesse_artes_literarias[i];
+                            ranking_interesse_artes_literarias[i] = auxiliar;
+
+                            auxiliarB = ranking_total_interesse_artes_literarias[j];
+                            ranking_total_interesse_artes_literarias[j] = ranking_total_interesse_artes_literarias[i];
+                            ranking_total_interesse_artes_literarias[i] = auxiliarB;
+                        }
+                    }
+                }
+
+                for(var i = tamanho - 1; i >= 0; i--){
+                    contadorRanking++
+
+                    tabela += `
+                    <tr>
+                        <th>${contadorRanking}</th>
+                        <th>${ranking_interesse_artes_literarias[i]}</th>
+                    </tr>
+                    `
+                }
+
+                tabelaInteresseArtesLiterarias.innerHTML =`
+                <table>
+                    <tbody>
+                        ${tabela}
+                    </tbody>
+                </table>
+                `;
 
                 const ctx9 = document.getElementById('GraficoArtesLiterarias');
                 
@@ -1861,6 +2228,51 @@
             .then(dados => {
                 var interesse_artes_visuais = dados.map(dado => dado.interesse) 
                 var total_artes_visuais = dados.map(dado => dado.totalArtesVisuais) 
+                
+                var ranking_interesse_artes_visuais = [];
+                var ranking_total_interesse_artes_visuais = [];
+
+                ranking_interesse_artes_visuais = interesse_artes_visuais;
+                ranking_total_interesse_artes_visuais = total_artes_visuais;
+
+                var tamanho = ranking_interesse_artes_visuais.length
+                var auxiliar = 0;
+                var auxiliarB = 0;
+                var tabela = "";
+                var contadorRanking = 0;
+
+                for(var i = 0; i < tamanho; i++){
+                    for (var j = i +1; j < tamanho; j++){
+                        if(ranking_total_interesse_artes_visuais[i] > ranking_total_interesse_artes_visuais[j]){
+                            auxiliar = ranking_interesse_artes_visuais[j];
+                            ranking_interesse_artes_visuais[j] = ranking_interesse_artes_visuais[i];
+                            ranking_interesse_artes_visuais[i] = auxiliar;
+
+                            auxiliarB = ranking_total_interesse_artes_visuais[j];
+                            ranking_total_interesse_artes_visuais[j] = ranking_total_interesse_artes_visuais[i];
+                            ranking_total_interesse_artes_visuais[i] = auxiliarB;
+                        }
+                    }
+                }
+
+                for(var i = tamanho - 1; i >= 0; i--){
+                    contadorRanking++
+
+                    tabela += `
+                    <tr>
+                        <th>${contadorRanking}</th>
+                        <th>${ranking_interesse_artes_visuais[i]}</th>
+                    </tr>
+                    `
+                }
+
+                tabelaInteresseArtesVisuais.innerHTML =`
+                <table>
+                    <tbody>
+                        ${tabela}
+                    </tbody>
+                </table>
+                `;
 
                 const ctx10 = document.getElementById('GraficoArtesVisuais');
                 
@@ -1898,6 +2310,25 @@
             .then(dados => {
                 var necessidade_reforco = dados.map(dado => dado.necessidadeReforco) 
                 var total_necessidade_reforco = dados.map(dado => dado.totalNecessidadeReforco) 
+                var tabela = "";
+
+                for(var i = 0; i < 2; i++){
+
+                    tabela += `
+                    <tr>
+                        <th>${necessidade_reforco[i]}</th>
+                        <th>${total_necessidade_reforco[i]}</th>
+                    </tr>
+                    `
+                }
+
+                tabelaNecessidadeReforco.innerHTML =`
+                <table>
+                    <tbody>
+                        ${tabela}
+                    </tbody>
+                </table>
+                `;
 
                 const ctx = document.getElementById('GraficoNecessidadeReforco');
             
